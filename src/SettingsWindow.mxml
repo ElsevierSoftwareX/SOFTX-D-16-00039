@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="402" height="180"
+			   title="Settings" close="closeWindow(event);" show="titlewindow1_showHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.core.IFlexDisplayObject;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import spark.events.IndexChangeEvent;
+			
+			public var voiceIDMale:String;
+			public var voiceIDFemale:String;
+			
+			public var mainApp:Object = null; 
+			
+			private var VOICE_LIST:Array = 
+				[
+					["en_GB", "English (UK)", "Graham (UK)", "HQ", "M", "graham22k"],
+					["en_GB", "English (UK)", "Lucy (UK)", "HQ", "F", "lucy22k"],
+					["en_GB", "English (UK)", "Peter (UK)", "HQ", "M", "peter22k"],
+					["en_GB", "English (UK)", "Rachel (UK)", "HQ", "F", "rachel22k"],
+				//	["en_GB", "English (UK)", "Kate (UK)", "HD", "F", "kate22k"],
+				//	["en_GB", "English (UK)", "Roger (UK)", "HD", "M", "roger8k"],
+					["en_US", "English (USA)", "Heather (US)", "HQ", "F", "heather22k"],
+					["en_US", "English (USA)", "Kenny (US)", "HQ", "M", "kenny22k"],
+					["en_US", "English (USA)", "Laura (US)", "HQ", "F", "laura22k"],
+					["en_US", "English (USA)", "Nelly (US)", "HQ", "F", "nelly22k"],
+					["en_US", "English (USA)", "Ryan (US)", "HQ", "M", "ryan22k"],
+					["en_US", "English (USA)", "Jane (US)", "HD", "F", "jane22k"],
+				//	["en_US", "English (USA)", "John (US)", "HD", "M", "john22k"]
+					
+				];
+			
+			private function closeWindow(e:CloseEvent):void {
+
+				PopUpManager.removePopUp(e.target as IFlexDisplayObject);
+			}
+			
+			private function filterMaleItems(item:Object):Boolean {
+				if (item[4] == "M") {
+					return true;    
+				}
+				else {
+					return false;
+				}
+			}
+			private function filterFemaleItems(item:Object):Boolean {
+				if (item[4] == "F") {
+					return true;    
+				}
+				else {
+					return false;
+				}
+			}			
+
+			protected function lst_male_creationCompleteHandler(event:FlexEvent):void
+			{
+				var myCollection:ArrayCollection = new ArrayCollection(VOICE_LIST);
+				myCollection.filterFunction = filterMaleItems;
+				myCollection.refresh();
+				lst_male.dataProvider = myCollection;
+				lst_male.labelFunction = lst_male_labelFunc;
+				
+				lst_male2.dataProvider = myCollection;
+				lst_male2.labelFunction = lst_male_labelFunc;
+			}
+			
+			private function lst_male_labelFunc(item:Object):String {
+				return item[2];
+			}
+
+			private function lst_female_labelFunc(item:Object):String {
+				return item[2];
+			}
+
+
+			protected function lst_female_creationCompleteHandler(event:FlexEvent):void
+			{
+				var myCollection:ArrayCollection = new ArrayCollection(VOICE_LIST);
+				myCollection.filterFunction = filterFemaleItems;
+				myCollection.refresh();				
+				lst_female.dataProvider = myCollection;
+				lst_female.labelFunction = lst_female_labelFunc;
+							
+				lst_female2.dataProvider = myCollection;
+				lst_female2.labelFunction = lst_female_labelFunc;
+			}
+			
+			protected function btn_ttstoggle_changeHandler(event:Event):void
+			{
+				//useTTS = btn_ttstoggle.selected;
+				mainApp.useTTS = btn_ttstoggle.selected; 
+			}
+
+
+			protected function lst_male_changingHandler(event:IndexChangeEvent):void
+			{
+				mainApp.voiceIDMaleLocal = lst_male.selectedItem[5].toString();
+				mainApp.voiceIDMaleLocalIdx = lst_male.selectedIndex;
+
+			}
+
+
+			protected function lst_female_changingHandler(event:IndexChangeEvent):void
+			{
+				mainApp.voiceIDFemaleLocal = lst_female.selectedItem[5].toString();
+				mainApp.voiceIDFemaleLocalIdx = lst_female.selectedIndex;
+			}
+
+
+			protected function titlewindow1_showHandler(event:FlexEvent):void
+			{
+
+			}
+
+
+			protected function lst_male_changingHandler2(event:IndexChangeEvent):void
+			{
+				mainApp.voiceIDMale2Local = lst_male2.selectedItem[5].toString();
+				mainApp.voiceIDMale2LocalIdx = lst_male2.selectedIndex;
+			}
+
+
+			protected function lst_female_changingHandler2(event:IndexChangeEvent):void
+			{
+				mainApp.voiceIDFemale2Local = lst_female2.selectedItem[5].toString();
+				mainApp.voiceIDFemale2LocalIdx = lst_female2.selectedIndex;
+			}
+
+
+			protected function btn_bgsoundtoggle_clickHandler(event:MouseEvent):void
+			{
+				mainApp.useBGSound = btn_bgsoundtoggle.selected;
+				if (mainApp.useBGSound == false) { mainApp.stop_bg_sound() } else { mainApp.start_bg_sound() } ;
+			}
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Label x="10" y="42" text="Male voice" height="21" verticalAlign="middle" fontSize="10" width="34"/>
+	<s:Label x="10" y="71" text="Female voice" height="21" verticalAlign="middle" fontSize="10" width="45"/>
+	<s:DropDownList x="87" y="42" width="122" id="lst_male" creationComplete="lst_male_creationCompleteHandler(event)" changing="lst_male_changingHandler(event)"></s:DropDownList>
+	<s:DropDownList x="87" y="71" width="122" id="lst_female" creationComplete="lst_female_creationCompleteHandler(event)" changing="lst_female_changingHandler(event)"></s:DropDownList>
+	<s:ToggleButton id="btn_ttstoggle" visible="true" x="58" y="7" width="284" height="27"
+					label="Use TTS Engine" change="btn_ttstoggle_changeHandler(event)"
+					selected="true"/>
+	<s:ToggleButton x="58" y="110" label="Play Background Sound" id="btn_bgsoundtoggle" height="27" change="btn_ttstoggle_changeHandler(event)" width="284" click="btn_bgsoundtoggle_clickHandler(event)"/>
+	<s:Label x="219" y="40" text="Male voice 2" height="21" verticalAlign="middle" fontSize="10" width="43"/>
+	<s:Label x="219" y="71" text="Female voice 2" height="21" verticalAlign="middle" fontSize="10" width="51"/>
+	<s:DropDownList x="268" y="40" width="122" id="lst_male2" changing="lst_male_changingHandler2(event)"></s:DropDownList>
+	<s:DropDownList x="269" y="71" width="121" id="lst_female2" changing="lst_female_changingHandler2(event)"></s:DropDownList>
+	<mx:HRule x="10" y="100" width="380"/>
+
+</s:TitleWindow>
