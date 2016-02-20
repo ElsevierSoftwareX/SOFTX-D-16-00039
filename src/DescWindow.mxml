@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="204"
+			   title="Explaination" close="closeWindow(event);">
+	<fx:Script>
+		<![CDATA[
+			
+			import mx.core.IFlexDisplayObject;
+			import mx.events.CloseEvent;
+			import mx.managers.PopUpManager;
+			
+			private function closeWindow(e:CloseEvent):void {
+				PopUpManager.removePopUp(e.target as IFlexDisplayObject);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:TextArea x="10" y="10" width="378" height="151" id="lbl_text" editable="false" paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10"/>
+</s:TitleWindow>

@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="760" height="445" backgroundColor="#FFFFFF" preloaderChromeColor="#FFFFFF"
+			     initialize="application1_initializeHandler(event)" pageTitle="Duenna Online (beta)">
+	<fx:Style source="Duenna.css"/>
+
+	<fx:Script>
+		<![CDATA[
+			
+//			------------------------------------------------			
+//			Imports
+//			------------------------------------------------	
+			
+			import com.acapela.vaas.advanced.*;
+			import com.acapela.vaas.advanced.events.*;
+			
+			import flash.events.Event;
+			import flash.events.IOErrorEvent;
+			import flash.media.Sound;
+			import flash.net.URLLoader;
+			import flash.net.URLRequest;
+			import flash.text.TextField;
+			import flash.text.TextFieldAutoSize;
+			import flash.xml.*;
+			
+			import flashx.textLayout.conversion.TextConverter;
+			
+			import mx.collections.*;
+			import mx.controls.Alert;
+			import mx.core.BitmapAsset;
+			import mx.core.IUITextField;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import spark.events.IndexChangeEvent;
+			import spark.skins.spark.ApplicationSkin;
+
+			
+			//private var tts_accountLogin:String = "EVAL_VAAS";
+			//private var tts_applicationLogin:String = "EVAL_5829497";
+			//private var tts_password:String = "qt1wbqah";
+			private var tts_serviceURL:String = null; //will use default url
+			
+			private var vaasConnector:Connector;
+
+			
+//			------------------------------------------------			
+//			Global variable declarations
+//			------------------------------------------------			
+			
+			private var externalXML:XML;
+			
+			private var listTopics:XMLList = new XMLList;
+			private var listConversations:XMLList = new XMLList;
+			
+			private var selectedConversations:XMLList;
+			
+			private var sideA1ImgSrc:String;
+			private var sideB1ImgSrc:String;
+			private var sideA2ImgSrc:String;
+			private var sideB2ImgSrc:String;	
+			
+			private var bXFadeAStarted:Boolean = false;
+			private var bXFadeBStarted:Boolean = false;
+			
+			private var conversation_textsA:Array;
+			private var conversation_textsB:Array;
+
+			private var conversation_textsA_HUN:Array;
+			private var conversation_textsB_HUN:Array;
+			
+			private var conversation_facesA:Array;
+			private var conversation_facesB:Array;
+			
+			private var bPlayButtonToggle:Boolean = true;
+			
+			private var sideAPos:Number = 0;
+			private var sideBPos:Number = 0;
+			private var currentSide:String = "A";
+			private var conversationPlaying:Boolean = false;
+			
+			private var sndComic:Sound;
+			private var channelComic:SoundChannel;
+			
+			private var sndBG:Sound;
+			private var channelBG:SoundChannel;
+			
+			private var myTimer:Timer;
+			private var myTimerB:Timer;
+			
+			public var useTTS:Boolean = true;
+			public var useBGSound:Boolean = false;
+			
+			public var voiceIDMaleLocal:String = "graham22k";
+			public var voiceIDFemaleLocal:String = "lucy22k";
+			public var voiceIDMaleLocalIdx:Number = 0;
+			public var voiceIDFemaleLocalIdx:Number = 0;		
+			
+			public var voiceIDMale2Local:String = "peter22k";
+			public var voiceIDFemale2Local:String = "rachel22k";
+			public var voiceIDMale2LocalIdx:Number = 1;
+			public var voiceIDFemale2LocalIdx:Number = 1;
+						
+							
+			protected function application1_initializeHandler(event:FlexEvent):void
+			{
+				
+				var loader:URLLoader = new URLLoader(); 
+				loader.addEventListener(Event.COMPLETE, initTTS); 
+				loader.load(new URLRequest('data/ttsconfig.xml')); 				
+								
+			}
+			
+			protected function initTTS(e:Event):void
+			{			
+				var ttsParams:Array = new Array();			
+				ttsParams = e.target.data.split("|");	
+				trace(e.target.data);
+				trace(ttsParams[0]);
+				trace(ttsParams[1]);
+				trace(ttsParams[2]);
+				tts_initVaas(ttsParams[0], ttsParams[1], ttsParams[2]);
+			}
+			
+			protected function tts_initVaas(accountLogin:String, applicationLogin:String, applicationPassword:String):void
+			{
+				
+				
+
+				vaasConnector = new Connector(accountLogin,applicationLogin, applicationPassword,tts_serviceURL);					
+
+				vaasConnector.player.addEventListener(MessageEvent.MESSAGE_OBTAINED, tts_messageObtainedEventHandler);
+				vaasConnector.player.addEventListener(SoundEvent.SOUND_PLAY_STARTED, tts_sound_start);	
+				vaasConnector.player.addEventListener(SoundEvent.SOUND_PLAY_ENDED, onTurnPlaybackComplete);
+				vaasConnector.player.addEventListener(SoundEvent.SOUND_BUFFERING, tts_sound_buffering);
+				vaasConnector.player.addEventListener(WordPositionEvent.SYNCHRO_WORD_POSITION, tts_wordPostionHandler);
+				
+				vaasConnector.addEventListener(VaasErrorEvent.ERROR, tts_errorHandler);
+			}
+			
+			protected function tts_generateMessage(tts_text:String):void
+			{	
+				if (conversationPlaying == false) {
+					return;
+				}
+				if (tts_text == null) return;
+				
+				var msg:Message = new Message();
+				var voiceGender:String;
+				if (currentSide == "A") {
+					voiceGender = selectedConversations.sideA.attribute("gender").toString();
+				} else {
+					voiceGender = selectedConversations.sideB.attribute("gender").toString()
+				}
+				if (voiceGender == "m") {
+					if (currentSide == "A" && selectedConversations.sideB.attribute("gender").toString() == "m") {
+						msg.voice = voiceIDMaleLocal; 
+					} else {
+						msg.voice = voiceIDMale2Local; 
+					}
+				} else {
+					if (currentSide == "A" && selectedConversations.sideB.attribute("gender").toString() == "f") {
+						msg.voice = voiceIDFemaleLocal;
+					} else {
+						msg.voice = voiceIDFemale2Local;
+					}
+				}
+				msg.text  = tts_text;	
+
+			
+				vaasConnector.player.play(msg);
+			}
+			
+			protected function tts_messageObtainedEventHandler(event:MessageEvent):void
+			{				
+				
+			}
+			
+			protected function tts_soundDownloadEndedEventHandler(event:SoundEvent):void
+			{
+				var channel:SoundChannel = event.sound.play();
+			}
+			
+			protected function tts_sound_start(event:SoundEvent):void
+			{		
+			}
+
+			protected function tts_sound_buffering(event:SoundEvent):void
+			{		
+			}
+
+			protected function tts_sound_end(event:SoundEvent):void
+			{	
+			}
+			
+			protected function tts_wordPostionHandler(event:WordPositionEvent):void
+			{
+				if (useTTS = true) {
+					//lbl_comic.setFocus();
+					lbl_comic.selectRange(event.startPos, event.endPos);
+					lbl_comic.scrollToRange(event.startPos, event.endPos);
+				}
+			}
+			
+			protected function tts_errorHandler(event:VaasErrorEvent):void
+			{
+				trace(event);
+			}
+						
+			
+			protected function lst_topics_creationCompleteHandler(event:FlexEvent):void
+			{
+				// load the topics xml file				
+ 				var loader:URLLoader = new URLLoader(); 
+				loader.addEventListener(Event.COMPLETE, loadTopicsXML); 
+				loader.load(new URLRequest('data/topics.xml'));  
+
+			}
+			
+			protected function lst_conversations_creationCompleteHandler(event:FlexEvent):void
+			{
+				// load the conversations xml file					
+				var loader:URLLoader = new URLLoader(); 
+				loader.addEventListener(Event.COMPLETE, loadConversationsXML); 
+				loader.load(new URLRequest('data/conversations.xml'));  
+			}			
+		
+			protected function lst_topics_changeHandler(event:IndexChangeEvent):void
+			{
+				// when the user selects an item from the topics list, populate the conversations list				
+				var myCollection:XMLListCollection = new XMLListCollection(listConversations.(@topicid == lst_topics.selectedItem.@id));
+				lst_conversations.dataProvider = myCollection;
+				lst_conversations.labelFunction = conversations_labelFunc;
+
+			}
+			
+			protected function lst_conversations_changeHandler(event:IndexChangeEvent):void
+			{
+
+				// when the user selects a conversations, load it				
+				selectedConversations = new XMLList(lst_conversations.selectedItem);
+				loadConversation();
+
+			}
+			protected function loadConversation():void {
+				lbl_loadinfo.visible = false;
+				lbl_loadinfo0.visible = false;
+
+								
+				changeBgImg("images/bg_images/" + selectedConversations.title.attribute("bgimg"));
+				
+				xfadeA.bitmapFrom = null;
+				xfadeB.bitmapFrom = null;
+					
+				fillConversations(selectedConversations.sideA.toString(), selectedConversations.sideB.toString(),selectedConversations.sideA_HUN.toString(), selectedConversations.sideB_HUN.toString());
+				
+				stop_conversation(true);
+				
+			}
+			
+			protected function fillConversations(sideA:String, sideB:String, sideA_HUN:String, sideB_HUN:String):void {
+				
+				var no_hun_trans:Boolean;
+				
+				conversation_facesA = new Array();
+				conversation_facesB = new Array();
+				
+				conversation_textsA = sideA.split("|");
+				conversation_textsB = sideB.split("|");
+				
+				if (sideA_HUN == "") { no_hun_trans = true; }
+				
+				conversation_textsA_HUN = sideA_HUN.split("|");
+				conversation_textsB_HUN = sideB_HUN.split("|");
+				
+				for (var iA:String in conversation_textsA)
+				{
+					if (!isNaN(conversation_textsA[iA].toString().substr(0,2))) {
+						conversation_facesA[iA] = conversation_textsA[iA].toString().substr(0,2);
+						conversation_textsA[iA] = conversation_textsA[iA].toString().substr(2);
+						
+					} else if (!isNaN(conversation_textsA[iA].toString().substr(0,1))) {	
+						conversation_facesA[iA] = conversation_textsA[iA].toString().substr(0,1);
+						conversation_textsA[iA] = conversation_textsA[iA].toString().substr(1);
+					} else {
+						if (!isNaN(conversation_facesA[0])) {
+							conversation_facesA[iA] = conversation_facesA[0];
+						} else {
+							conversation_facesA[iA] = 1;
+						}
+						conversation_textsA[iA] = conversation_textsA[iA].toString();						
+					}	
+				}
+
+				if (no_hun_trans != false) {
+					for (var iAH:String in conversation_textsA_HUN)
+					{
+						conversation_textsA_HUN[iAH] = conversation_textsA_HUN[iAH].toString();						
+					}				
+					
+					for (var iBH:String in conversation_textsB_HUN)
+					{
+						conversation_textsB_HUN[iBH] = conversation_textsB_HUN[iBH].toString();						
+					}	
+				}
+				
+				for (var iB:String in conversation_textsB)
+				{
+					if (!isNaN(conversation_textsB[iB].toString().substr(0,2))) {
+						conversation_facesB[iB] = conversation_textsB[iB].toString().substr(0,2);
+						conversation_textsB[iB] = conversation_textsB[iB].toString().substr(2);
+					} else if (!isNaN(conversation_textsB[iB].toString().substr(0,1))) {
+						conversation_facesB[iB] = conversation_textsB[iB].toString().substr(0,1);
+						conversation_textsB[iB] = conversation_textsB[iB].toString().substr(1);
+					} else {
+						if (!isNaN(conversation_facesB[0])) {
+							conversation_facesB[iB] = conversation_facesB[0];
+						} else {
+							conversation_facesB[iB] = 1;
+						}
+						conversation_textsB[iB] = conversation_textsB[iB].toString();						
+					}	
+				}	
+				
+				init_conversation_frombeginning();
+
+			}
+			
+			protected function init_conversation_frombeginning():void {
+				
+				resetComic(true);
+				image_bubble.visible = false;
+				lbl_comic.visible = false;				
+				
+			}
+
+			
+			protected function changeBgImg(bgimg:String):void {
+				imgLoader.load(bgimg);
+			}
+			
+			protected function changeSideImg(side:String, num:Number):void {
+				
+				if (isNaN(num)) {
+					return;
+				}
+				
+				if (side == "A") {
+										
+					sideA2ImgSrc = "images/faces/" + selectedConversations.sideA.attribute("faceimg") + num.toString() + ".png";
+					
+					if (!sideA1ImgSrc) {
+						sideA1ImgSrc = sideA2ImgSrc;
+					}		
+					
+					if (img_face_A.source != sideA2ImgSrc) {
+						img_face_A.source = sideA2ImgSrc; 
+					}
+					
+					//xfadeA.bitmapFrom = xfadeA.bitmapTo;
+					//var loaderA2:Loader = new Loader();
+					//loaderA2.contentLoaderInfo.addEventListener(Event.COMPLETE, onImgA2Complete);
+					//loaderA2.load(new URLRequest(sideA2ImgSrc)); 
+					 
+				} else if (side == "B") {
+					
+					sideB2ImgSrc = "images/faces/" + selectedConversations.sideB.attribute("faceimg") + num.toString() + ".png";
+					
+					if (!sideB1ImgSrc) {
+						sideB1ImgSrc = sideB2ImgSrc;
+					}
+					
+					if (img_face_B.source != sideB2ImgSrc) {
+						img_face_B.source = sideB2ImgSrc; 
+					}
+					
+					//xfadeB.bitmapFrom = xfadeB.bitmapTo;
+					//var loaderB2:Loader = new Loader();
+					//loaderB2.contentLoaderInfo.addEventListener(Event.COMPLETE, onImgB2Complete);
+					//loaderB2.load(new URLRequest(sideB2ImgSrc)); 
+					
+				}
+					
+			}
+			
+			protected function onImgA1Complete (event:Event):void
+			{
+				xfadeA.stop();
+				var bitmapData:BitmapData = Bitmap(LoaderInfo(event.target).content).bitmapData;
+				xfadeA.bitmapFrom = bitmapData;
+				triggerCrossFade("A");
+			}
+			
+			protected function onImgA2Complete (event:Event):void
+			{
+				xfadeA.stop();
+				var bitmapData:BitmapData = Bitmap(LoaderInfo(event.target).content).bitmapData;
+				xfadeA.bitmapTo = bitmapData;
+				
+				//img_face_A.source = sideA2ImgSrc ;
+				triggerCrossFade("A");
+			}
+			
+			protected function onImgB1Complete (event:Event):void
+			{
+				xfadeB.stop();
+				var bitmapData:BitmapData = Bitmap(LoaderInfo(event.target).content).bitmapData;
+				
+				var flipHorizontalMatrix:Matrix = new Matrix();
+				flipHorizontalMatrix.scale(-1,1);
+				flipHorizontalMatrix.translate(bitmapData.width,0);
+				
+				var flippedBitmap:BitmapData = new BitmapData(bitmapData.width,bitmapData.height,true, 0x00ffffff);
+				flippedBitmap.draw(bitmapData,flipHorizontalMatrix);
+				
+				xfadeB.bitmapFrom = flippedBitmap;
+				triggerCrossFade("B");
+			}
+			
+			protected function onImgB2Complete (event:Event):void
+			{
+				xfadeB.stop();
+				var bitmapData:BitmapData = Bitmap(LoaderInfo(event.target).content).bitmapData;;
+				
+				var flipHorizontalMatrix:Matrix = new Matrix();
+				flipHorizontalMatrix.scale(-1,1);
+				flipHorizontalMatrix.translate(bitmapData.width,0);
+				
+				var flippedBitmap:BitmapData = new BitmapData(bitmapData.width,bitmapData.height,true, 0x00ffffff);
+				flippedBitmap.draw(bitmapData,flipHorizontalMatrix);
+				
+				xfadeB.bitmapTo = flippedBitmap;
+				
+				//img_face_B.source = sideB2ImgSrc ;
+				
+				triggerCrossFade("B");
+			}
+			
+			protected function lst_topics_handleAnwser():void {
+				
+			}
+			
+			private function triggerCrossFade(side:String):void {
+				if (xfadeA.bitmapFrom != null && xfadeA.bitmapTo != null && bXFadeAStarted != true && side == "A") {
+					xfadeA.stop();
+					xfadeA.play();		
+					bXFadeAStarted = true;
+					
+				}
+				if (xfadeB.bitmapFrom != null && xfadeB.bitmapTo != null && bXFadeBStarted != true && side == "B") {
+					xfadeB.stop();
+					xfadeB.play();		
+					bXFadeBStarted = true;
+				}
+			}
+
+			
+			protected function loadConversationsXML(e:Event):void
+			{		
+				externalXML = new XML(e.target.data);
+				listConversations = externalXML.conversation;
+			}
+			
+			protected function loadTopicsXML(e:Event):void
+			{		
+			
+				externalXML = new XML(e.target.data);
+				listTopics = externalXML.topic;
+				
+				var myCollection:XMLListCollection = new XMLListCollection(listTopics);
+				lst_topics.dataProvider = myCollection;
+				lst_topics.labelFunction = topics_labelFunc;
+			
+				
+			}			
+			
+			private function topics_labelFunc(item:Object):String {
+				return item.title;
+			}
+
+			private function conversations_labelFunc(item:Object):String {
+				return item.title;
+			}
+
+			protected function imgLoader_completeHandler(evt:Event):void {
+				comic_background.setStyle("backgroundImage", imgLoader.content);
+				
+			}
+
+			protected function endEffectXFadeAListener(evt:Event):void {
+
+				if (img_face_A.source != sideA2ImgSrc) {
+					img_face_A.source = sideA2ImgSrc; 
+				}
+				bXFadeAStarted = false;
+			}
+			protected function endEffectXFadeBListener(evt:Event):void {
+
+				if (img_face_B.source != sideB2ImgSrc) {
+					img_face_B.source = sideB2ImgSrc; 
+				}
+				bXFadeBStarted = false;
+				
+			}			
+			protected function endEffectXFadeBgListener(evt:Event):void {
+				
+			}					
+
+
+			protected function button_play_clickHandler(event:MouseEvent):void
+			{
+				
+				if (selectedConversations == null) return;
+				if (bPlayButtonToggle) {
+					button_play.source = "images/buttons/1300911592_player_pause.png";
+					bPlayButtonToggle = false;
+					play_conversation();
+					
+				} else {
+					button_play.source = "images/buttons/1300911538_player_play.png";
+					bPlayButtonToggle = true;
+					pause_conversation();
+				}
+			}
+			
+			protected function button_stop_clickHandler(event:MouseEvent):void
+			{
+				if (selectedConversations == null) return;
+				stop_conversation(true);
+			}
+			
+			public function stop_bg_sound():void {
+				if (sndBG != null) { 
+					if(channelBG) {
+						channelBG.stop();
+					} 
+				}
+			}
+			
+			public function start_bg_sound():void {
+				var BGsndFile:String;
+				if (useBGSound == false || conversationPlaying == false) return;
+				BGsndFile = "bgsound/" + selectedConversations.title.attribute("bgsnd").toString();
+				if (BGsndFile != "bgsound/") {
+					var req:URLRequest = new URLRequest(BGsndFile);
+					sndBG = null;
+					sndBG = new Sound();
+					//sndBG.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
+					sndBG.load(req);
+					channelBG = sndBG.play(0,int.MAX_VALUE);
+					//channelBG.addEventListener(Event.SOUND_COMPLETE, onTurnPlaybackComplete);
+				}
+			}
+			
+
+			protected function play_conversation():void {
+				
+				
+					if (sideAPos == 0 && sideBPos == 0) {
+						conversationPlaying = true;	
+						play_next_line();
+						start_bg_sound();					
+					} else {
+						if (channelComic != null) {
+							start_bg_sound();
+							channelComic = sndComic.play();
+							channelComic.addEventListener(Event.SOUND_COMPLETE, onTurnPlaybackComplete);
+						} else {
+							reset_Timer();
+							start_Timer();
+						}							
+					}
+
+			}
+			protected function pause_conversation():void {
+				if (useTTS == true) {
+					vaasConnector.player.pause();
+				}
+				stop_bg_sound();
+				if (sndComic != null && myTimer == null) { 
+					if(channelComic) {
+						channelComic.stop();
+					} 
+				} else {
+					reset_Timer();
+				}
+				
+			}			
+						
+			protected function start_bubble_Timer():void {
+				reset_bubble_Timer();
+				lbl_comic.visible = false;
+				image_bubble.visible = false;
+				myTimerB = new Timer(500, 1);
+				myTimerB.addEventListener("timer", bubbleTimerHandler);
+				myTimerB.start();	
+			}
+			
+			protected function reset_bubble_Timer():void {
+				if (myTimerB != null) { 
+					myTimerB.stop(); 
+					myTimerB = null;
+				}
+			}
+			
+			protected function start_Timer():void {
+				reset_Timer();
+				myTimer = new Timer(2000, 1);
+				myTimer.addEventListener("timer", sideTimerHandler);
+				myTimer.start();	
+			}
+			
+			protected function reset_Timer():void {
+				if (myTimer != null) { 
+					myTimer.stop(); 
+					myTimer = null;
+				}	
+
+			}
+			
+			
+			
+			protected function stop_conversation(resetFaces:Boolean):void {
+
+				if (sndComic != null && myTimer == null) { 
+					if(channelComic) {
+						channelComic.stop();
+					} 
+				}
+				stop_bg_sound();
+				stop_tts();
+				resetComic(resetFaces);
+				image_bubble.visible = false;
+				lbl_comic.visible = false;	
+			}	
+			
+			private function stop_tts():void {
+				if (useTTS == true) {
+					vaasConnector.player.stop();
+					vaasConnector.player.stop();
+				}
+			}
+			protected function resetComic(resetFaces:Boolean):void {
+				stop_tts();
+				reset_Timer();
+				currentSide = "A";
+				sideAPos = 0;
+				sideBPos = 0;
+				changeSideImg("A", conversation_facesA[sideAPos]);
+				changeSideImg("B", conversation_facesB[sideAPos]);				
+				bPlayButtonToggle = true;
+				button_play.source = "images/buttons/1300911538_player_play.png";
+			}
+			protected function play_next_line():void {
+				
+				var sndFile:String;
+				
+				image_bubble.visible = true;
+				lbl_comic.visible = true;
+				lbl_comic.selectRange(0,0);
+
+				
+				start_bubble_Timer();
+				
+				if (currentSide == "A") {
+					changeSideImg("A", conversation_facesA[sideAPos]);
+					sndFile = "audio/conv" + selectedConversations.attribute("id").toString()  + "_A" +  sideAPos.toString() +  ".mp3"
+					image_bubble.scaleX = 1;
+					image_bubble.x = 134;
+					lbl_comic.x = 148;
+					lbl_comic.text = conversation_textsA[sideAPos];						
+				} else if (currentSide == "B") {
+					changeSideImg("B", conversation_facesB[sideBPos]);
+					sndFile = "audio/conv" + selectedConversations.attribute("id").toString()  + "_B" +  sideBPos.toString() +  ".mp3"
+					image_bubble.scaleX = -1;
+					image_bubble.x = 134 + image_bubble.width;
+					lbl_comic.x = 148 + 30;
+					lbl_comic.text = conversation_textsB[sideBPos];
+				}
+				
+				playTurnVoice(sndFile);
+				
+				if (currentSide == "A") {
+					currentSide = "B";
+					sideAPos = sideAPos + 1;
+				} else if (currentSide == "B") {
+					currentSide = "A";
+					sideBPos = sideBPos + 1;
+				}
+				
+				if (sideAPos > conversation_textsA.length && sideBPos == conversation_textsB.length) 
+				{
+					stop_conversation(false);	
+					conversationPlaying = false;
+				}
+				
+			}
+			
+			private function playTurnVoice(sndFile:String):Boolean {
+				
+				if (useTTS == false) {
+					var req:URLRequest = new URLRequest(sndFile);
+					sndComic = null;
+					sndComic = new Sound();
+					sndComic.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
+					sndComic.load(req);
+					channelComic = sndComic.play();
+					channelComic.addEventListener(Event.SOUND_COMPLETE, onTurnPlaybackComplete);
+				} else {
+					tts_generateMessage(lbl_comic.text);
+				}
+					
+				return true;
+			}
+				
+			
+			private function onTurnPlaybackComplete(event:Event):void
+			{
+				play_next_line();
+
+			}
+
+			public static function hexToRgb(color:String):uint
+			{
+				if(color && color.charAt(0) == "#")
+				{
+					return uint("0x" + color.substring(1));
+				}
+				return 0;
+			}
+
+			private function ioErrorHandler(event:IOErrorEvent):void {
+				reset_Timer();
+				start_Timer();			
+			}
+			public function sideTimerHandler(event:TimerEvent):void {
+				if (conversationPlaying == true) {
+					reset_Timer();
+					play_next_line();
+				} else {
+					reset_Timer();
+				}
+			}
+			
+			
+			
+			public function bubbleTimerHandler(event:TimerEvent):void {
+				if (conversationPlaying == true) {
+					lbl_comic.visible = true;
+					image_bubble.visible = true;
+				}
+			}
+			
+			protected function setBgGradient(color1:String, color2:String):void {
+				var grad1:LinearGradient = new LinearGradient;
+				var grad1Entry1:GradientEntry = new GradientEntry;
+				var grad1Entry2:GradientEntry = new GradientEntry;
+				grad1Entry1.color = hexToRgb(color2);
+				grad1Entry2.color = hexToRgb(color1);
+				grad1.entries = new Array(grad1Entry1, grad1Entry2);
+				grad1.rotation = 90;
+				rectBg.fill = grad1;
+				
+				
+				
+			}
+
+			protected function bgColor1_clickHandler(event:MouseEvent):void
+			{
+				setBgGradient("#3A6EA5", "#FFFFFF");
+				
+			}
+			protected function bgColor2_clickHandler(event:MouseEvent):void
+			{
+				setBgGradient("#FF0000", "#FFFFFF");
+				
+			}
+			protected function bgColor3_clickHandler(event:MouseEvent):void
+			{
+				setBgGradient("#4CFF7C", "#FFFFFF");
+				
+			}			
+			protected function bgColor4_clickHandler(event:MouseEvent):void
+			{
+				setBgGradient("#FF9A3D", "#FFFFFF");
+				
+			}
+
+			protected function bgColor0_clickHandler(event:MouseEvent):void
+			{
+				setBgGradient("#CCCCCC", "#FFFFFF");
+				
+			}
+			protected function bgColor5_clickHandler(event:MouseEvent):void
+			{
+				setBgGradient("#C7E7F9", "#CCCCCC");
+				
+			}
+			private function smoothImage(evt:Event):void{
+				var myBitmap:Bitmap = ((evt.target as Image).content as Bitmap);
+
+				if (myBitmap != null) {
+					myBitmap.smoothing = true;
+				}
+			}
+
+			protected function button_dict_clickHandler(event:MouseEvent):void
+			{
+				var win:DictWindow = new DictWindow();
+				PopUpManager.addPopUp(win,this,true);
+				PopUpManager.centerPopUp(win);
+				
+			}
+
+
+			protected function button_grammar_clickHandler(event:MouseEvent):void
+			{
+				if (conversation_textsA == null)  return;
+				
+				var win:DescWindow = new DescWindow();
+				PopUpManager.addPopUp(win,this,true);
+				PopUpManager.centerPopUp(win);
+				win.lbl_text.text = StringReplaceAll (lst_conversations.selectedItem.explaination.toString(), "|", "\n");
+			}
+
+
+			public static function StringReplaceAll( source:String, find:String, replacement:String ) : String
+			{
+				return source.split( find ).join( replacement );
+			}
+
+
+			protected function button_settings_clickHandler(event:MouseEvent):void
+			{
+				var win:SettingsWindow = new SettingsWindow();
+				PopUpManager.addPopUp(win,this,true);
+				PopUpManager.centerPopUp(win);
+				win.mainApp = this;
+				win.btn_ttstoggle.selected = useTTS;
+				win.btn_bgsoundtoggle.selected = useBGSound;
+				win.lst_female.selectedIndex = voiceIDFemaleLocalIdx;
+				win.lst_male.selectedIndex = voiceIDMaleLocalIdx;
+				win.lst_female2.selectedIndex = voiceIDFemale2LocalIdx;
+				win.lst_male2.selectedIndex = voiceIDMale2LocalIdx;
+				
+			}
+
+			protected function button_help_clickHandler(event:MouseEvent):void
+			{
+				var win:HelpWindow = new HelpWindow();
+				PopUpManager.addPopUp(win,this,true);
+				PopUpManager.centerPopUp(win);
+			}
+
+
+			protected function volume_slider_changeHandler(event:Event):void
+			{
+				SoundMixer.soundTransform = new SoundTransform(volume_slider.value / 100);
+			}
+
+
+			protected function button_transc_clickHandler(event:MouseEvent):void
+			{	
+				if (conversation_textsA == null)  return;
+				
+				var dialog_trans:String = String("");
+				var dialog_trans_HUN:String = String("");
+				var win:TranscWindow = new TranscWindow();
+				PopUpManager.addPopUp(win,this,true);
+				PopUpManager.centerPopUp(win);
+				
+				for (var i:String in conversation_textsB)
+				{
+					dialog_trans += "<b>A</b>: " + conversation_textsA[i].toString();
+					dialog_trans += "<br>";
+					dialog_trans += "<b>B</b>: " + conversation_textsB[i].toString();
+					dialog_trans += "<br>";
+				}
+				
+				if (conversation_textsA_HUN[0].toString() != "") {
+					for (var iH:String in conversation_textsB_HUN)
+					{
+						dialog_trans_HUN += "<b>A</b>: " + conversation_textsA_HUN[iH].toString();
+						dialog_trans_HUN += "<br>";
+						dialog_trans_HUN += "<b>B</b>: " + conversation_textsB_HUN[iH].toString();
+						dialog_trans_HUN += "<br>";
+					}
+				}
+				
+				if (dialog_trans_HUN == "") { dialog_trans_HUN = "No translation available." } 
+				
+				win.text_trans.textFlow = TextConverter.importToFlow(dialog_trans, TextConverter.TEXT_FIELD_HTML_FORMAT);
+				win.text_trans_HUN.textFlow = TextConverter.importToFlow(dialog_trans_HUN, TextConverter.TEXT_FIELD_HTML_FORMAT);
+
+			}
+
+
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:CrossFade id="xfadeA" target="{img_face_A}" duration="700" effectEnd="endEffectXFadeAListener(event);"/>
+		<s:CrossFade id="xfadeBg" target="{comic_background}" duration="700" effectEnd="endEffectXFadeBgListener(event);"/>
+		<s:CrossFade id="xfadeB" target="{img_face_B}" duration="400" effectEnd="endEffectXFadeBListener(event);"/>
+		<mx:Glow id="buttonGlow" duration="1000" strength="15"
+				 blurXFrom="10.0" blurXTo="20.0"
+				 blurYFrom="10.0" blurYTo="20.0"/>
+		<mx:SWFLoader id="imgLoader" complete="imgLoader_completeHandler(event);" />
+		<mx:WipeRight id="wipeOut" duration="1000"/>
+		<mx:WipeRight id="wipeIn" duration="1000"/>
+
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+
+	<s:Rect x="0" y="0" width="760" height="445" id="rectBg">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="0xcccccc"/>
+				<s:GradientEntry color="0xC7E7F9"/>
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+
+	
+	<mx:Image x="0" y="-50" source="images/bg.png" visible="false"/>	
+	<s:DropDownList x="547" y="124" width="195" id="lst_topics" creationComplete="lst_topics_creationCompleteHandler(event)" labelField="title" toolTip="Please select a topic..." change="lst_topics_changeHandler(event)" enabled="true" selectedIndex="0">
+		<s:layout>
+			<s:VerticalLayout gap="0"
+							  variableRowHeight="true"
+							  horizontalAlign="justify" />
+		</s:layout>
+	</s:DropDownList>
+	<s:DropDownList x="547" y="174" width="195" id="lst_conversations" labelField="id" toolTip="Please select a conversation..." change="lst_conversations_changeHandler(event)" creationComplete="lst_conversations_creationCompleteHandler(event)">
+		<s:layout>
+			<s:VerticalLayout gap="0"
+							  variableRowHeight="true"
+							  horizontalAlign="justify" />
+		</s:layout>
+	</s:DropDownList>
+	<s:Label x="547" y="102" text="Topic" width="195" height="22" id="test_label" verticalAlign="middle" textAlign="center" styleName="comiclabel2"/>
+	<s:Label x="547" y="282" text="Volume" width="195" height="22" id="test_label1" verticalAlign="middle" textAlign="center" styleName="comiclabel2"/>
+	<s:Label x="546" y="152" text="Conversation" width="195" height="22" id="test_label0" verticalAlign="middle" textAlign="center" styleName="comiclabel2"/>
+	<s:BorderContainer x="9" y="103" width="530" height="300" backgroundImageFillMode="scale" borderStyle="solid" borderWeight="2" cornerRadius="5" id="comic_background">
+		<mx:Image id="img_face_A" horizontalAlign="left" verticalAlign="bottom" bottom="0" left="0" smoothBitmapContent="true" complete="smoothImage(event)"/>
+		<mx:Image id="img_face_B" horizontalAlign="left" verticalAlign="bottom" bottom="0" right="0" smoothBitmapContent="true" scaleX="-1" complete="smoothImage(event)"/>
+		<s:Label x="83" y="64" text="Please select a topic and a conversation from the dropdown lists on the right side in order to open a comic" width="361" height="202" verticalAlign="middle" textAlign="center" styleName="comiclabel2" id="lbl_loadinfo" fontSize="18"/>
+		<s:Label x="41" y="31" text="Please note: this is a BETA version, so you might experience some unexpected delays or bugs while playing the dialogues. Rest assured, we are constantly improving this application." width="446" height="61" verticalAlign="middle" textAlign="justify" styleName="comiclabel2" id="lbl_loadinfo0" fontSize="14" color="#646464" textAlignLast="center"/>
+		<mx:Image x="134" y="-21" id="image_bubble" source="images/bubble.png" visible="false" alpha="0.7"/>
+		<s:Label x="148" y="20" width="204" height="90" id="lbl_comic2" visible="false" alpha="0.7" styleName="comiclabel3" verticalAlign="middle" textAlign="center"/>
+		<s:RichEditableText fontSize="16" x="148" y="20" width="204" height="90" text="" id="lbl_comic" visible="false" alpha="0.7"  textAlign="center" selectable="true" fontFamily="Suplexmentary" focusThickness="0" focusedTextSelectionColor="#64FF64"  unfocusedTextSelectionColor="#64FF64" verticalAlign="middle" selectionHighlighting="always" editable="false"/>
+		
+		
+	</s:BorderContainer>
+	
+	<mx:Image x="672" y="10" source="images/buttons/1300911682_questionmark_48.png" toolTip="Help" id="button_help" rollOverEffect="buttonGlow" click="button_help_clickHandler(event)"/>
+	<mx:Image x="600" y="10" source="images/buttons/1300911626_Settings.png" toolTip="Settings" id="button_settings" rollOverEffect="buttonGlow" click="button_settings_clickHandler(event)"/>
+	<mx:HRule x="547" y="205" width="195"/>
+	<mx:HRule x="547" y="325" width="195"/>
+	<mx:HRule x="10" y="87" width="732"/>
+	<mx:Image x="570" y="214" source="images/buttons/1300911538_player_play.png" toolTip="Play" id="button_play" rollOverEffect="buttonGlow" click="button_play_clickHandler(event)"/>
+	<mx:Image x="685" y="335" source="images/buttons/abc.PNG" toolTip="Dictionary" id="button_dict" rollOverEffect="buttonGlow" click="button_dict_clickHandler(event)"/>
+	<mx:Image x="616" y="335" source="images/buttons/1300911626_trans.png" toolTip="Transcript" id="button_transcript" rollOverEffect="buttonGlow" click="button_transc_clickHandler(event)"/>
+	<mx:Image x="547" y="335" toolTip="Grammatical explaination" id="button_grammar" rollOverEffect="buttonGlow" source="images/buttons/info.PNG" click="button_grammar_clickHandler(event)"/>
+	<mx:Image x="654" y="214" source="images/buttons/1300911576_player_stop.png" toolTip="Stop" id="button_stop" rollOverEffect="buttonGlow" click="button_stop_clickHandler(event)"/>
+	<mx:HRule x="10" y="417" width="732"/>
+	<s:Label x="10" y="427" text="Duenna Online - Copyright 2011-2015 The Meltingpot (created by Balázs Horváth &amp; Bence Blaske)" width="732" verticalAlign="middle" textAlign="center" fontSize="9" fontFamily="Verdana" backgroundAlpha="1.0" color="#FFFFFF" chromeColor="#FFFFFF"/>
+	<mx:Image x="10" y="10" source="images/logo_sm.png"/>
+	<s:BorderContainer x="559" y="13" width="25" height="25" backgroundColor="#3A6EA5" id="bgColor1" click="bgColor1_clickHandler(event)" visible="true">
+	</s:BorderContainer>
+	<s:BorderContainer x="526" y="46" width="25" height="25" backgroundColor="#FF0000" id="bgColor2" click="bgColor2_clickHandler(event)" visible="true">
+	</s:BorderContainer>
+	<s:BorderContainer x="526" y="13" width="25" height="25" backgroundColor="#4CFF7C" id="bgColor3" click="bgColor3_clickHandler(event)" visible="true">
+	</s:BorderContainer>
+	<s:BorderContainer x="493" y="46" width="25" height="25" backgroundColor="#FF9A3D" id="bgColor4" click="bgColor4_clickHandler(event)" visible="true">
+	</s:BorderContainer>
+	<s:BorderContainer x="493" y="13" width="25" height="25" backgroundColor="#CCCCCC" id="bgColor0" click="bgColor0_clickHandler(event)" visible="true">
+	</s:BorderContainer>	
+	<s:BorderContainer x="559" y="46" width="25" height="25" backgroundColor="#C7E7F9" id="bgColor5" click="bgColor5_clickHandler(event)" visible="true">
+	</s:BorderContainer>
+	
+	<s:Label x="101" y="74" text="TTS-based language teaching application" width="210" fontSize="9" fontWeight="normal" color="#646464"/>
+	<s:HSlider x="570" y="303" width="148" height="14" minimum="0" maximum="100" stepSize="5" value="50" change="volume_slider_changeHandler(event)" id="volume_slider"/>
+	
+</s:Application>

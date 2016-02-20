@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="434" height="186"
+			   title="Dictionary" close="closeWindow(event);" >
+	<fx:Script>
+		<![CDATA[
+			import flash.xml.*;
+			
+			import mx.collections.*;
+			import mx.core.IFlexDisplayObject;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import spark.events.IndexChangeEvent;
+			import spark.events.TextOperationEvent;
+			
+			
+			private var externalXML:XML;
+			private var listWords:XMLList = new XMLList;
+			private var listWordDetail:XMLList = new XMLList;
+			private var myCollectionWords:XMLListCollection
+			
+			private var selectedWord:XMLList;
+			
+			private function closeWindow(e:CloseEvent):void {
+				PopUpManager.removePopUp(e.target as IFlexDisplayObject);
+			}
+			
+			protected function lst_words_creationCompleteHandler(event:FlexEvent):void
+			{
+				var loader:URLLoader = new URLLoader(); 
+				loader.addEventListener(Event.COMPLETE, loadDictXML); 
+				loader.load(new URLRequest('data/dictionary.xml')); 
+			}
+			protected function loadDictXML(e:Event):void
+			{		
+				
+				externalXML = new XML(e.target.data);
+				listWords = externalXML.item;
+				
+				myCollectionWords = new XMLListCollection(listWords);
+				myCollectionWords.filterFunction = filterWords;
+				lst_words.dataProvider = myCollectionWords;
+				lst_words.labelFunction = word_labelFunc;
+				
+				
+			}
+			
+			private function filterWords(item:Object):Boolean {
+				if (item.word.toLowerCase().indexOf(textFilter.text) >= 0) {
+					return true;    
+				 }
+				else {
+				 return false;
+				}
+			}
+			
+			private function word_labelFunc(item:Object):String {
+				return item.word;
+			}
+
+			protected function textFilter_changeHandler(event:TextOperationEvent):void
+			{
+				myCollectionWords.refresh();
+			}
+
+
+			protected function lst_words_changeHandler(event:IndexChangeEvent):void
+			{
+				selectedWord = new XMLList(lst_words.selectedItem);
+				lbl_meaning.text = selectedWord.explaination;
+			}
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:List x="10" y="32" width="179" height="109" id="lst_words" creationComplete="lst_words_creationCompleteHandler(event)" fontSize="10" change="lst_words_changeHandler(event)"></s:List>
+	<s:TextInput x="10" y="5" width="179" id="textFilter" change="textFilter_changeHandler(event)"/>
+	<s:Label x="197" y="32" width="225" height="111" id="lbl_meaning"/>
+</s:TitleWindow>

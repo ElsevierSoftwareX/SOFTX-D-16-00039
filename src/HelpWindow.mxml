@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="600" height="300"
+			   title="Help" close="closeWindow(event);" >
+	<fx:Script>
+		<![CDATA[
+			import flash.xml.*;
+			
+			import mx.collections.*;
+			import mx.core.IFlexDisplayObject;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import spark.events.IndexChangeEvent;
+			import spark.events.TextOperationEvent;
+			import flashx.textLayout.conversion.TextConverter;			
+			
+			private var externalXML:XML;
+			private var listHelps:XMLList = new XMLList;
+			private var listHelpDetail:XMLList = new XMLList;
+			private var myCollectionWords:XMLListCollection
+			
+			private var selectedHelp:XMLList;
+			
+			private function closeWindow(e:CloseEvent):void {
+				PopUpManager.removePopUp(e.target as IFlexDisplayObject);
+			}
+			
+			protected function lst_helps_creationCompleteHandler(event:FlexEvent):void
+			{
+				var loader:URLLoader = new URLLoader(); 
+				loader.addEventListener(Event.COMPLETE, loadDictXML); 
+				loader.load(new URLRequest('data/help.xml')); 
+			}
+			protected function loadDictXML(e:Event):void
+			{		
+				
+				externalXML = new XML(e.target.data);
+				listHelps = externalXML.item;
+				
+				myCollectionWords = new XMLListCollection(listHelps);
+				lst_helps.dataProvider = myCollectionWords;
+				lst_helps.labelFunction = help_labelFunc;
+				lst_helps.selectedIndex = 0;
+				
+				
+				selectedHelp = new XMLList(lst_helps.selectedItem);
+				lbl_meaning.textFlow = TextConverter.importToFlow(selectedHelp.explaination.toString(), TextConverter.TEXT_FIELD_HTML_FORMAT);
+				
+				
+			}
+						
+			private function help_labelFunc(item:Object):String {
+				return item.subject;
+			}
+			
+			protected function lst_helps_changeHandler(event:IndexChangeEvent):void
+			{
+				selectedHelp = new XMLList(lst_helps.selectedItem);
+				lbl_meaning.textFlow = TextConverter.importToFlow(selectedHelp.explaination.toString(), TextConverter.TEXT_FIELD_HTML_FORMAT);
+
+			}
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:List x="10" y="10" width="106" height="247" id="lst_helps" creationComplete="lst_helps_creationCompleteHandler(event)" fontSize="10" change="lst_helps_changeHandler(event)">
+		<s:layout>
+			<s:VerticalLayout gap="0"
+							  variableRowHeight="true"
+							  horizontalAlign="justify" />
+		</s:layout>
+
+	</s:List>
+	<s:TextArea x="124" y="10" width="464" height="247" id="lbl_meaning" editable="false" paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10"/>
+
+</s:TitleWindow>

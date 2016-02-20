@@ -1,0 +1,747 @@
+<conversations>
+<conversation id="1" topicid="1">
+<title bgimg="station.gif" bgsnd="x.mp3">What's the time?</title>
+<sideA faceimg="andras" gender="m">12 Excuse me, can you tell me the time?|2My Gosh, this train is late again!|12What do you do?|6Well let's hope you can clear up the situation with your boss.</sideA>
+<sideB faceimg="gabor" gender="m">1Of course, let me check my watch. It is quarter past.|14Yes indeed. I am already late for work for the second time this week. My boss may think there is a pattern and I want to skip my job.|6I am a shop assistant at a local store.|15Ah! I can feel we are finally moving! Just in time!</sideB>
+<sideA_HUN>Idő?|Késik a vonat|Mit csinálsz?|Megoldod.</sideA_HUN>
+<sideB_HUN>Passz|Valóban. Késésben vagyok.|Boltos vagyok.|Elindultunk!</sideB_HUN>
+<explaination>Present Simple (egyszerû jelen):
+
+- általánosságok kifejezésére használjuk
+- kapcsolódik hozzá a 0. típusú feltételes mód (Zero Conditional), amelyet az általános igazságok feltételes módjának is nevezünk (a feltétel mindkét oldalán jelen idõ van)
+If I have time I read. - Ha van idõm, olvasok.
+- ha a mondatba állítás esetén a 'do' segédigét is beillesztjük, akkor annak jelentése magyarul igenis lesz.
+I do read. - Én igenis olvasok.
+</explaination>
+</conversation>
+
+<conversation id="2" topicid="2">
+<title bgimg="hammer100.gif" bgsnd="x.mp3">What are you doing?</title>
+<sideA faceimg="gabor" gender="m">5Hello Jack! What are you doing at the moment?
+|11Why?|15Do you need any help?
+</sideA>
+
+<sideB faceimg="andras" gender="m">5Hi John! I am trying to hammer this nail into the wall.|1I want to hang this picture on the wall.|8Well I could use a hand, the wall is particularly hard here.
+
+</sideB>
+<explaination>Present Continuous (folymatos jelen):
+
+- folyamatos jelen idõ a magyar neve, az éppen folyamatosan zajló cselekvéseket fejezi ki
+- ha bármelyik igeidõben megpillantjuk az -ing igevégzõdést, akkor biztosan szükségünk van 
+egy létigére is a fõige elé; - ezt kell megfelelõen ragozni, míg a fõige sosem változik
+- lehetséges elõrelátható jövõ idõt is kifejeznünk vele, ha szerepel a pontos idõpont 
+megjelölése a mondatban, idõhatározókkal, az idõhatározók elé nem kell kötõszó vagy 
+prepozíció és általában kezdõ nyelvtanulóknak érdemes a mondat végére tenni
+- a P.C. avval, hogy jövõ idõt is kifejezhetünk vele, kapcsolódik az általános jövõ idejû 
+szerkezetekhez, a will-hez és a going to-hoz, bizonyítás az I'm going to the movies tonight. - 
+mondat, amely egybecseng a going to-s, jövõ idõt kifejezõ szerkezettel
+- a continuous mindig folyamatosságot, egy folyamatot fog kifejezni
+-"going to go" kifejezés nincs
+</explaination>
+</conversation>
+
+<conversation id="3" topicid="3">
+<title bgimg="phone.gif" bgsnd="x.mp3">What were you doing?</title>
+<sideA faceimg="saci" gender="f">1What were you doing yesterday evening?|2Why did she call?|10Poor dear. When did she call?|13Is she feeling better now?
+
+</sideA>
+<sideB faceimg="andras" gender="m">13I wanted to watch TV with a cup of caramel in my hand, but Jenny called me and we talked. |8Her boyfriend dumped her and she was very sad about it.|7I was waching TV for about ten minutes when the phone rang around half past 8. We were talking for nearly an hour.|6We were talking about meeting today for another chat, so until then I can't say.
+
+
+</sideB>
+<explaination>Past Continuous (folyamatos múlt):
+
+- A folyamatos múltidõ a múltban egy hosszabb ideig tartott cselekvés kifejezésére használatos. Mivel folyamatos, az ing-es igealak elõtt a 'be' létigének a megfelelõ múltbeli alakja is szükséges, ez lehet 'was' vagy 'were', attól függõen, hogy hány ember végezte a cselekvést. A legfontosabb két szituáció, amikor elõkerül nyelvvizsgán, azt fejezi ki, hogy egy cselekvéssort valami megzavart, vagy, hogy két dolog egy idõben történt. 
+- Ha valamit megzavart egy másik cselekvés, amely egyébként összehasonlítva rövidebb ideig is tartott, a megzavaró tevékenység Simple Past idõbe kerül. - A S.P. használata összetett szerkezetekben késõbb szabályossá válik. Az angol nyelv szereti, ha a nehezebb nyelvtan az elsõ mondattagban van.
+I was watching TV when the postman rang.
+- Ha a két cselekvés egymással párhuzamosan történt, akkor mindkettõ folyamatos múlt idõben szerepel a mondatban és a mialatt szócska, a 'while' szerepel logikai kapcsolatként.
+I was watching TV while mom was cooking dinner.
+</explaination>
+</conversation>
+
+<conversation id="4" topicid="4">
+<title bgimg="conditioner.gif" bgsnd="x.mp3">A glass of water</title>
+<sideA faceimg="andras" gender="m">2 I am thirsty. This heatwave is unbearable.|5What do you have in the fridge?|7Oh splendid, then I will have a glass of that if it is not a problem.|8Thanks! Would you be so kind to turn on the air-conditioner as well?
+</sideA>
+<sideB faceimg="gabor" gender="m">15 I will get you a drink of water, or do you want anything else?
+|13There is some orange juice left from yesterday. I think it is cool enough.|7Not at all!|4Sure, I will do that too.
+</sideB>
+
+<explaination>A 'will' és 'going to' (Simple Future - egyszerû jövõ):
+
+- vázlatosan az egyetlen eltérés a szándékokban az, hogy a nem elõre eltervezett jövõ 
+kifejezésére a 'will', az eltervezett jövõ kifejezésére a 'going to' szolgál
+- a mondatokban az elõbb felsorolt két segédige mögött a fõigék kötõszavak nélkül és sima 
+jelen idõben állnak
+- a mondatok nagy részében a fordításnál, ha szerepel a fog szócska, akkor will-t kell 
+használnunk
+
+idõhatározók (adverbials of time):
+
+- a mondatban ezeket mozgathatjuk a legszabadabban, a lényeg, hogy mire szeretnénk beszéd 
+közben hangsúlyt fektetni
+Tomorrow I am going to the movies. - Mikor?
+I am going to the movies tomorrow. - Hová?
+</explaination>
+</conversation>
+
+<conversation id="5" topicid="4">
+<title bgimg="restaurant.gif" bgsnd="x.mp3">Are you ready to order now?</title>
+<sideA faceimg="gabor" gender="m">5Are you ready to order now?|4How do you want your steak?|4Do you want anything to drink?|7Our new claret is quite tasty.|11Anything for dessert?
+
+
+</sideA>
+<sideB faceimg="andras" gender="m">8Yes, thank you. I think I'll have the steak with fries and the free bean salad.|13Rare please.|6What wine do you recommend?|7Alright I'll have then a glass.|7A vanilla ice-cream sundae please. </sideB>
+
+<explaination>A 'will' és 'going to' (Simple Future - egyszerû jövõ):
+
+- vázlatosan az egyetlen eltérés a szándékokban az, hogy a nem elõre eltervezett jövõ 
+kifejezésére a 'will', az eltervezett jövõ kifejezésére a 'going to' szolgál
+- a mondatokban az elõbb felsorolt két segédige mögött a fõigék kötõszavak nélkül és sima 
+jelen idõben állnak
+- a mondatok nagy részében a fordításnál, ha szerepel a fog szócska, akkor will-t kell 
+használnunk
+
+idõhatározók (adverbials of time):
+
+- a mondatban ezeket mozgathatjuk a legszabadabban, a lényeg, hogy mire szeretnénk beszéd 
+közben hangsúlyt fektetni
+Tomorrow I am going to the movies. - Mikor?
+I am going to the movies tomorrow. - Hová?
+</explaination>
+</conversation>
+
+
+<conversation id="6" topicid="4">
+<title bgimg="diner.gif" bgsnd="x.mp3">A hamburger menu</title>
+<sideA faceimg="edina" gender="f">5What will you have?|4What kind of drink do you want with it?|4Do you want any condiment with the fries?|7 Anything else?|10That will be 3 dollars alltogether please.
+
+</sideA>
+<sideB faceimg="andras" gender="m">8I'll have a double cheeseburger menu.|13Sprite please.|6Yes, ketchup please.|7No thanks!|7Here you are!
+</sideB>
+
+<explaination>A 'will' és 'going to' (Simple Future - egyszerû jövõ):
+
+- vázlatosan az egyetlen eltérés a szándékokban az, hogy a nem elõre eltervezett jövõ 
+kifejezésére a 'will', az eltervezett jövõ kifejezésére a 'going to' szolgál
+- a mondatokban az elõbb felsorolt két segédige mögött a fõigék kötõszavak nélkül és sima 
+jelen idõben állnak
+- a mondatok nagy részében a fordításnál, ha szerepel a fog szócska, akkor will-t kell 
+használnunk
+
+idõhatározók (adverbials of time):
+
+- a mondatban ezeket mozgathatjuk a legszabadabban, a lényeg, hogy mire szeretnénk beszéd 
+közben hangsúlyt fektetni
+Tomorrow I am going to the movies. - Mikor?
+I am going to the movies tomorrow. - Hová?
+</explaination>
+</conversation>
+
+
+
+
+<conversation id="7" topicid="4">
+<title bgimg="room7.gif" bgsnd="x.mp3">Plans for the evening</title>
+<sideA faceimg="edina" gender="f">5What are you planning for this evening?
+|4I never knew you were into such genres.|4I am sorry I can't, I have arranged a meeting with another friend of mine and we are going to have dinner in a fine restaurant.
+
+</sideA>
+<sideB faceimg="andras" gender="m">8I have already arranged with my friends that we are going to the cinem to watch that new thriller.|13Well it has been a long time since I saw a good flic. Why don't you come with us?|6Well, next time then.
+</sideB>
+
+<explaination>A 'will' és 'going to' (Simple Future - egyszerû jövõ):
+
+- vázlatosan az egyetlen eltérés a szándékokban az, hogy a nem elõre eltervezett jövõ 
+kifejezésére a 'will', az eltervezett jövõ kifejezésére a 'going to' szolgál
+- a mondatokban az elõbb felsorolt két segédige mögött a fõigék kötõszavak nélkül és sima 
+jelen idõben állnak
+- a mondatok nagy részében a fordításnál, ha szerepel a fog szócska, akkor will-t kell 
+használnunk
+
+idõhatározók (adverbials of time):
+
+- a mondatban ezeket mozgathatjuk a legszabadabban, a lényeg, hogy mire szeretnénk beszéd 
+közben hangsúlyt fektetni
+Tomorrow I am going to the movies. - Mikor?
+I am going to the movies tomorrow. - Hová?
+</explaination>
+</conversation>
+
+
+
+<conversation id="8" topicid="5">
+<title bgimg="egypt.gif" bgsnd="x.mp3">Bottled water</title>
+<sideA faceimg="saci" gender="f">1You must remember to buy bottles of fresh drinking water when you are in Egypt.|9Because when you go to Egypt, you mustn't drink directly from a faucet. The plumming is not that great over there.|3You might get some serious illness.
+
+
+</sideA>
+<sideB faceimg="andras" gender="m">7Why?|8What will happen to me if I drink regulat tap water?|9Oh my! I never knew that!
+</sideB>
+
+<explaination>Feltételes módok - Conditionals:
+
+- Az angol nyelvben a feltételes módokat négy csoportra oszthatjuk. Ezeket a csoportokat a követhetõség kedvéért sorszámozni szokták 0-3 ig. Összesen négyféle feltételes mód van, amelyek azt fejezik ki, hogy egy adott kívánság mennyire esélyes arra, hogy valósággá váljon. A valóságos feltételeknek az igeidõkhöz rengeteg köze van, minél inkább csak vágy amit ki akarunk fejezni, annál inkább a múlt idõ alkalmazása kerül elõ a mondatokban. A következõ összefoglaló nemcsak a számozást, de a szakszerû elnevezéseket és nyelvtani magyarázatokat is mutatja.
+
+Present Real Conditional - 0. általánosságok, alapigazságok jelen idõben
+If I have time, I study English.
+Ha van idõm, angolt tanulok. - Ez az állítás nagyon valószínû. 
+Képzése: present simple + present simple
+
+Past Real Conditional - 0. általánosságok, alapigazságok múlt idõben
+If I had time, I studied English. 
+Ha volt idõm, angolt tanultam. - Ez az állítás azért általános, mert a beszélõ múltbéli szokását írja le.
+Képzése: past simple + past simple
+</explaination>
+</conversation>
+
+<conversation id="9" topicid="5">
+<title bgimg="street4.gif" bgsnd="x.mp3">Can you tell me the way?</title>
+<sideA faceimg="saci" gender="f">1 Excuse me! Can you tell me the way to the Parliament?|9How many stations do I have to take?|9Do I have to change?|7Thank you!
+
+</sideA>
+<sideB faceimg="gabor" gender="m">7But of course! If you take the underground, you will be there in ten minutes.|4Both the directions and the number of the stations can be read from the wall of the station.|9No you don't have to change.|7You are welcome!
+
+</sideB>
+
+<explaination>Feltételes módok - Conditionals:
+
+- Az angol nyelvben a feltételes módokat négy csoportra oszthatjuk. Ezeket a csoportokat a követhetõség kedvéért sorszámozni szokták 0-3 ig. Összesen négyféle feltételes mód van, amelyek azt fejezik ki, hogy egy adott kívánság mennyire esélyes arra, hogy valósággá váljon. A valóságos feltételeknek az igeidõkhöz rengeteg köze van, minél inkább csak vágy amit ki akarunk fejezni, annál inkább a múlt idõ alkalmazása kerül elõ a mondatokban. A következõ összefoglaló nemcsak a számozást, de a szakszerû elnevezéseket és nyelvtani magyarázatokat is mutatja.
+
+Future Real Conditional - 1. jövõre vonatkozó kijelentések
+If I have time, I will study English.
+Ha lesz idõm, fogok angolt tanulni. - Ez az állítás már jóslat jellegû, nem elõre eltervezett cselekvést fejez ki, hiszen nem tudhatjuk, hogy valóban lesz-e a beszélõnek szabadideje.
+Képzése: present simple + future simple (will)
+If I have time, I am going to study English.
+I don't know if I will have time or not. - Az elõzõhöz hasonló szituáció azzal a kitétellel, hogy a szabadidõ kitöltése mindenképpen tanulással fog telni.
+Képzése: present simple + future simple (going to)
+</explaination>
+</conversation>
+
+<conversation id="10" topicid="5">
+<title bgimg="showroom.gif" bgsnd="x.mp3">It is a question of money</title>
+<sideA faceimg="edina" gender="f">2 What are you thinking about?|5I see what you mean, it is truly a beautiful car.|8Why don't you play the lottery?|7Well that is no real argument, if you want it so bad, keep on trying!</sideA>
+
+<sideB faceimg="andras" gender="m">11Can you see that car in the window? If I had money I would buy it.|4I dream of owning one of them, but I need a lot of money to buy one. Much more than I have.|3I wouldn't win. |5I'll think about it.</sideB>
+
+<explaination>Feltételes módok - Conditionals:
+
+- Az angol nyelvben a feltételes módokat négy csoportra oszthatjuk. Ezeket a csoportokat a követhetõség kedvéért sorszámozni szokták 0-3 ig. Összesen négyféle feltételes mód van, amelyek azt fejezik ki, hogy egy adott kívánság mennyire esélyes arra, hogy valósággá váljon. A valóságos feltételeknek az igeidõkhöz rengeteg köze van, minél inkább csak vágy amit ki akarunk fejezni, annál inkább a múlt idõ alkalmazása kerül elõ a mondatokban. A következõ összefoglaló nemcsak a számozást, de a szakszerû elnevezéseket és nyelvtani magyarázatokat is mutatja.
+
+Present Unreal Conditional - 2. jelenre és jövõre vonatkozó kifejezések, a beszélõ kívánsága valamekkora eséllyel megvalósulhat (megegyezik a Future Unreal Conditional alakjával)
+If I had time, I would study English. - A mondatból kiderül, hogy a beszélõnek nincs ideje, de elképzelhetõ, hogy a jövõben még lehet, hogy lesz. 
+Ha lenne idõm, tanulnék angolul. 
+Képzése: past simple + would
+
+Bárcsak (óhajtás) - If only vagy I wish
+- Mindkét kifejezés ugyanazt jelent, egyszerûen a mondatok elejére kell illesztenünk õket. Általában egyszerû mondatokban fordulnak elõ, de ha valaki tehetséges, összetett szerkezetekben is használhatja:
+If only I had more money, I would buy a car. - Bárcsak lenne több pénzem, vennék egy kocsit.
+</explaination>
+</conversation>
+
+<conversation id="11" topicid="5">
+<title bgimg="street.gif" bgsnd="x.mp3">Lost chance</title>
+<sideA faceimg="saci" gender="f">10 Why are you so sad?|13Gosh, I am sorry! What happened?|3Is there no way to get her back?|2You truly miss her, don't you?
+</sideA>
+
+<sideB faceimg="andras" gender="m">3Guess what! Julie left me yesterday!|8I think if I had had more time for her, she would have loved me better.|4I don't think so.|3Sure, she was the love of my life and I didn't pay attention to the signs.
+
+</sideB>
+
+<explaination>Feltételes módok - Conditionals:
+
+- Az angol nyelvben a feltételes módokat négy csoportra oszthatjuk. Ezeket a csoportokat a követhetõség kedvéért sorszámozni szokták 0-3 ig. Összesen négyféle feltételes mód van, amelyek azt fejezik ki, hogy egy adott kívánság mennyire esélyes arra, hogy valósággá váljon. A valóságos feltételeknek az igeidõkhöz rengeteg köze van, minél inkább csak vágy amit ki akarunk fejezni, annál inkább a múlt idõ alkalmazása kerül elõ a mondatokban. A következõ összefoglaló nemcsak a számozást, de a szakszerû elnevezéseket és nyelvtani magyarázatokat is mutatja.
+
+Past Unreal Conditional - 3. a beszélõ kívánsága nem teljesülhet, mert annak feltételei már nem aktuálisak
+If I had had time, I would have studied English. - Ha lett volna idõm, tanultam volna angolul.
+Képzése: past perfect + would + present perfect
+</explaination>
+</conversation>
+
+<conversation id="12" topicid="6">
+<title bgimg="hot.gif" bgsnd="x.mp3">Waiting and waiting</title>
+<sideA faceimg="andras" gender="m">13Joe said he would be here by now, but we have been waiting for him for an hour.|1But he was specific and he said he wanted to meet us today. It was a matter of life and death for him.|6I can't think of no serious reason. Perhaps something has happened to him on the way here.|5Yes, he said he would meet us on the corner of 6th Avenue and Magnolia.|10He said that the last time he could not give us some important documents, because he had left them in his office.</sideA>
+
+<sideB faceimg="gabor" gender="m">10I think he screwed us over.|9If so then why is he trying our patience?|9Are we at the right place?|14Why are we waiting for him anyways?|Typical...</sideB>
+
+<explaination>Függõbeszéd - Reported Speech:
+
+- A függõbeszéd egy személy mondanivalójának (fel)idézésére szolgál. A lényeg abban rejlik, hogy nem szó szerinti, azaz idézõjeles formáról van szó, hanem a megfelelõ igeidõk alkalmazásával, a lényeg kiemelésérõl. A fõ problémát az jelenti, hogy az idézett részletek igeideje mindig valamilyen régebbi idõsíkra ugrik. - Az angol ezt a folyamatot "backshift"-nek hívja. Mivel az angol az igeidõk használatával szándékokat is kifejez, ezért merész kifejezés lenne csupán azt állítani, hogy logikusan, valamilyen kivételek nélküli szabály alapján történik a "backshift", inkább próbálja mindenki saját maga memorizálni a szabályokat az alábbi táblázat alapján.
+- Minden eredetileg múlt idõben elhangzott részlet Past Perfectre vált, ennél nincs régebbi idõt kifejezõ idõ az angolban. A Past Perfect szerepét azért érdemes kihangsúlyozni, mert szerepe a nyelvtanuló számára itt a legnyilvánvalóbb - az "azt mondta, hogy" kifejezés után a távolabbi múltból idézzük a cselekvést, amely természetesen régebben történt mint az, hogy megtudtuk az idézett információt.
+- A 'that' szócska a magyar 'hogy' megfelelõje, az angol viszont elegánsnak tartja elhagyni. A nagy Google találati arányok miatt viszont nem elhanyagolható alak. Vizsgaszituáció közben kerülendõ!
+
+Backshift of tenses - idõvisszaváltások (5 alapesetben) 
+
+Present Simple 
+I am wrong.
+Past Simple
+She said she was wrong.
+
+Present Continuous
+I am reading.
+Past Continuous
+She said she was reading.
+
+Present Perfect
+I have studied English for 5 years.
+Past Perfect
+He said he had studied English for 5 years.
+
+Past Simple
+I ate an apple.
+Past Perfect
+He said he had eaten an apple.
+
+Future Simple
+I will go to the cinema.
+- would
+She said she would go to the cinema.
+
+'Say'/'Tell'
+
+- Alapvetõen a mondani (say) és a mesélni (illetve tanácsot adni) (tell) közötti eltérésekrõl van szó. Egyéb alkalmazások attól függenek, hogy milyen nyelvtani környezetben van a két kifejezés.
+
+'say' - mind személyes névmásokkal, mind azok nélkül alkalmazható, ha van személyes névmás, akkor kell egy 'to' is a 'say' után
+she said to me - azt mondta nekem... 
+She said to me she was wrong. - Azt mondta nekem, hogy volt igaza. 
+
+'tell' - csak személyes névmásokkal alkalmazzuk, nem kell utána más kifejezés a névmás elõtt
+she told me - pl.: azt mesélte...
+She told me a story. Elmesélt egy történetet.
+She told me to go to the doctor. - Azt mondta (tanácsolta), hogy menjek orvoshoz. 
+
+- Örök érvényû és általában igaz információk idézése esetében nincs szükség arra, hogy megváltoztassuk az igeidõket!
+Kate said she loves steaks. - Kati azt mondta, hogy szereti a sült marhahúst. 
+Kate said the Earth is round. - Kati azt mondta, hogy a Föld kerek.
+</explaination>
+</conversation>
+
+
+
+<conversation id="13" topicid="7">
+<title bgimg="book.gif" bgsnd="x.mp3">Looking back</title>
+<sideA faceimg="gabor" gender="m">15Wow this book brings back a lot of memories! It was given to me at my prom by my first love.|7It is a copy of Jungle Book, nothing special on it's own, but It has real emotional value for me.|7Well, about five or six times so far. 
+</sideA>
+<sideB faceimg="andras" gender="m">7Well I can see why you kept it all these years. What kind of book is it?|8How many times have you read it?|15You lucky devil! I must say it is truly a beautiful edition.
+</sideB>
+<explaination>Szenvedõ szerkezet - Passive:
+
+- Általában az angol mondatok szórendje az Subject-Verb-Object (Alany, Állítmány, Tárgy - valaki csinál valamit) hármas egységén és sorrendjén alapul. A szenvedõ szerkezetben az Alany és a Tárgy helyet cserélnek egymással. Annak ellenére, hogy ez elsõre nagyon furcsa, az angol elõszeretettel használja és példákon keresztül látva a dolog nem is olyan nehéz:
+
+Sue gave me the book. - Zsuzsi nekem adta a könyvet.
+The book was given to me by Sue. - A könyv nekem adatott Zsuzsi által. - A magyarban ez az alak a szenvedõ szerkezet megfelelõje, de a mondatot a "nekem lett adva" formával jobban megérthetjük. Legmagyarosabban úgy is fogalmazhatnánk, hogy a könyvet Zsuzsi adta nekem.
+
+- Banális de mégis szemléltetõ magyarázat, hogy a könyv mivel nem maga tehet róla, hogy odaadták, "passzívan elszenvedi" a cselekménysort. 
+
+- A szerkezet képzése az Alany helyére lépett Tárgy után egy a mondat kontextusának megfelelõ idejû létige és a fõigénk harmadik alakjával történik. 
+Sue gave me the book. 
+The book was given to me by Sue.
+
+- Abban az esetben, ha folyamatos igeidõkrõl beszélünk, lehetséges, hogy két létige is kell a mondatba - mivel az -ing-es alakok önmagukban igényelnek maguk elé egy létigét. Ez a második létige fogja megkapni az ing végzõdést is, hiszen a fõige harmadik alakjára van egyébként szükségünk
+Kate is eating a sandwich. - Kati szendvicset eszik.
+A sandwich is being eaten by Kate. - Szendvicset éppen Kati eszik. (Itt nehéz lenne másként fordítani. / megétetett / Lásd késõbb!.)
+
+Tehát láthatjuk, hogy az elsõ létige szerepel a leírt elõbbi képzési szabályok szerint, majd a folyamatos igeidõ miatt a 'be' is belép második létigeként és megkapja a megfelelõ végzõdést, végül pedig a szerkezet a fõige harmadik alakjával ér véget. 
+
+- Ezt eljátszhatjuk más folyamatos idõkkel is.
+Josh was reading a book. - Josh olvasott egy könyvet.
+A book was being read by Josh. - Egy könyv olvastatott Josh által.
+
+- Nem szokás megemlíteni, de mivel az angolban igen elterjedt a passzív használata, mégis fontos elmondani, hogy már a bemutatkozás során is találkozik vele a nyelvtanuló. Amikor azt mondja el valaki, hogy hol, illetve mikor született, akkor is szenvedõ szerkezetet használ:
+I was born in 1996. - 1996-ban születtem.
+
+- Ha arról van szó, hogy nem akarjuk kihangsúlyozni, hogy a cselekvést ki hajtotta végre, nem kell ragaszkodnunk a 'by' alkalmazásához. 
+They took the patients to hospital. - The patients were taken to hospital. 
+A betegeket kórházba vitték (a mentõsök, de ez mivel nyilvánvaló, nem kell kihangsúlyoznunk).
+
+- A 'by' jelenléte biztosan utal a passzív hangvételre! Legtöbbször a médiában találkozhatunk vele:
+Jungle Book (was written) by Kipling.
+White America (sung) by Eminem
+</explaination>
+</conversation>
+
+
+<conversation id="14" topicid="7">
+<title bgimg="radio2.gif" bgsnd="x.mp3">The accident</title>
+<sideA faceimg="gabor" gender="m">Turn on the radio a bit, I want to hear the news.|Did anybody die?|I called Jack yesterday as he was also on that road around the same time. Luckily he was not involved.|I can imagine that it was nearly impossible to see the road with all the heavy rain that caused the trouble.
+</sideA>
+<sideB faceimg="andras" gender="m">They are speaking about the big road accident that had happened last night.|No. Fortunately all the injured people were taken to hospital in time.|Indeed, the report says that about twenty cars have crashed into each other.|I would never drive my car under such poor conditions.
+</sideB>
+<explaination>Szenvedõ szerkezet - Passive:
+
+- Általában az angol mondatok szórendje az Subject-Verb-Object (Alany, Állítmány, Tárgy - valaki csinál valamit) hármas egységén és sorrendjén alapul. A szenvedõ szerkezetben az Alany és a Tárgy helyet cserélnek egymással. Annak ellenére, hogy ez elsõre nagyon furcsa, az angol elõszeretettel használja és példákon keresztül látva a dolog nem is olyan nehéz:
+
+Sue gave me the book. - Zsuzsi nekem adta a könyvet.
+The book was given to me by Sue. - A könyv nekem adatott Zsuzsi által. - A magyarban ez az alak a szenvedõ szerkezet megfelelõje, de a mondatot a "nekem lett adva" formával jobban megérthetjük. Legmagyarosabban úgy is fogalmazhatnánk, hogy a könyvet Zsuzsi adta nekem.
+
+- Banális de mégis szemléltetõ magyarázat, hogy a könyv mivel nem maga tehet róla, hogy odaadták, "passzívan elszenvedi" a cselekménysort. 
+
+- A szerkezet képzése az Alany helyére lépett Tárgy után egy a mondat kontextusának megfelelõ idejû létige és a fõigénk harmadik alakjával történik. 
+Sue gave me the book. 
+The book was given to me by Sue.
+
+- Abban az esetben, ha folyamatos igeidõkrõl beszélünk, lehetséges, hogy két létige is kell a mondatba - mivel az -ing-es alakok önmagukban igényelnek maguk elé egy létigét. Ez a második létige fogja megkapni az ing végzõdést is, hiszen a fõige harmadik alakjára van egyébként szükségünk
+Kate is eating a sandwich. - Kati szendvicset eszik.
+A sandwich is being eaten by Kate. - Szendvicset éppen Kati eszik. (Itt nehéz lenne másként fordítani. / megétetett / Lásd késõbb!.)
+
+Tehát láthatjuk, hogy az elsõ létige szerepel a leírt elõbbi képzési szabályok szerint, majd a folyamatos igeidõ miatt a 'be' is belép második létigeként és megkapja a megfelelõ végzõdést, végül pedig a szerkezet a fõige harmadik alakjával ér véget. 
+
+- Ezt eljátszhatjuk más folyamatos idõkkel is.
+Josh was reading a book. - Josh olvasott egy könyvet.
+A book was being read by Josh. - Egy könyv olvastatott Josh által.
+
+- Nem szokás megemlíteni, de mivel az angolban igen elterjedt a passzív használata, mégis fontos elmondani, hogy már a bemutatkozás során is találkozik vele a nyelvtanuló. Amikor azt mondja el valaki, hogy hol, illetve mikor született, akkor is szenvedõ szerkezetet használ:
+I was born in 1996. - 1996-ban születtem.
+
+- Ha arról van szó, hogy nem akarjuk kihangsúlyozni, hogy a cselekvést ki hajtotta végre, nem kell ragaszkodnunk a 'by' alkalmazásához. 
+They took the patients to hospital. - The patients were taken to hospital. 
+A betegeket kórházba vitték (a mentõsök, de ez mivel nyilvánvaló, nem kell kihangsúlyoznunk).
+
+- A 'by' jelenléte biztosan utal a passzív hangvételre! Legtöbbször a médiában találkozhatunk vele:
+Jungle Book (was written) by Kipling.
+White America (sung) by Eminem
+</explaination>
+</conversation>
+
+
+
+<conversation id="15" topicid="8">
+<title bgimg="office2.gif" bgsnd="x.mp3">New hairstyle</title>
+<sideA faceimg="edina" gender="f">7Hi Josh! Do you notice anything different?|12Do you really like it? I had my hair cut yesterday.|15And it was cheap too, only cost me 10 bucks.
+</sideA>
+<sideB faceimg="gabor" gender="m">15Wow Jenny, you look fantastic! Your new hairstyle makes you gorgeous!|7Well your hairdresser did a mighty fine job!|5I must say that was truly a bargain. I simply can't get around.
+</sideB>
+<explaination>Mûveltetés - Causative:
+
+- A kérdéses szerkezet azt fejezi ki, hogy egy bizonyos cselekvéssort elvégeztetünk egy másik személlyel. A másik személyt meg is nevezhetjük, ha fontosnak tartjuk, illetve különféle érzelmi színezeteket is adhatunk mondanivalónknak. Ezek az érzelmi színek arra utalnak, hogy valakinek például megparancsoltunk-e vagy megengedtünk-e valamit.
+
+Olyan esetben nem kell kihangsúlyozni, hogy ki végzi a cselekvést, ha például teljesen nyilvánvaló típuscselekvésekrõl van szó:
+- Levágatom a hajamat (a fodrász szokott hajat vágni az esetek legnagyobb részében).
+- Lemosatom a kocsimat (az autómosóval...)
+
+Ha tehát nem akarjuk megnevezni a cselekvõt a mondat szerkezete a következõ lesz:
+személyes névmás +                have/get +                      tárgy +                     fõige harmadik alakja
+I                                 have                            my hair                     cut.
+I                                 have                            my car                      washed.
+
+Ezt a szerkezetet szokták 'have something done' - megcsináltatni valamit kifejezéssel is jelölni a nyelvtani összefoglalók, a jobb szemléltetés miatt.
+
+- A 'get' alkalmazásának esetében arra kell gondolnunk, hogy mennyire utasítottunk/bírtunk rá  valakit a cselekvésre, illetve, hogy írásban ez a forma kevésbé használatos.
+- A különféle igeidõk jelei a 'have/get' segédige helyére kerülhetnek. Az igeidõk jelenléte nem befolyásolja a szerkezet többi részét.
+I had my hair cut. - Levágattam a hajamat. 
+I was having my car washed. - Lemosattam a kocsimat.
+I have had the car washed. - Lemosattam a kocsimat  (a cselekvés eredménye látható)
+I will have the car washed. - Le fogom mosatni a kocsimat.
+
+- A 'have/get' helyére más kifejezéseket is behelyezhetünk, de ezekkel érdemes óvatosan bánni. Az angol alapvetõen a 'have/get' páron kívül még a 'make' és a 'let' igéket használja, pl.: 
+let - engedni - I let my hair cut.
+make - a jelentés itt már eltorzul, hiszen az 'I made' azt is jelentené, hogy én magam végeztem valamilyen cselekvést.
+- Érdekes, hogy a szenvedõ szerkezet fõigéjének ideje miatt (harmadik alak) van némi áthallás a mûveltetés és a passzív mondatok között. Ezt azért nagyon fontos kihangsúlyoznunk, mert félrefordítások keletkezhetnek, ha szerencsétlen történésekrõl beszélünk!
+I had my money stolen from my wallet. - Kilopták a pénzemet a tárcámból. (Nem pedig ellopattam a pénzem!)
+
+- Ha fontosnak tartjuk a cselekvõ kilétét megnevezni, akkor a szerkezet a következõképpen módosul:
+személyes névmás + have/get + végrehajtó személye + fõige sima jelen ideje + tárgy
+I                  have       him                   pay                      the money.
+I                  have       my mother             cut                      my hair.  
+A 'get' esetében vigyázni kell, mert a fõige elé belép a to elöljárószó is! 
+I                 get         him               to pay  the money.
+Ezt a szerkezetet szokták 'have somebody do something' - valakivel csináltatni valamit kifejezéssel is jelölni a nyelvtani összefoglalók, a jobb szemléltetés miatt.
+
+- A 'have/get' helyére más kifejezéseket is behelyezhetünk, itt nincs annyira megkötve a nyelvtanuló, pl.: 
+let - engedni - I let my mother cut my hair. - Megengedtem anyámnak, hogy levágja a hajamat.
+make - rábírni - I made my friend smile. - Megmosolyogtattam a barátom.
+</explaination>
+</conversation>
+
+
+
+
+
+<conversation id="16" topicid="9">
+<title bgimg="mags.gif" bgsnd="x.mp3">Magazines</title>
+<sideA faceimg="andras" gender="m">15I have found these old magazines in the attic. I used to read these many times when I was a small boy.|7They are about aviation.|8Well they deal with all kinds of airplanes and how to fly them. |7Yeah sure, help yourself! I leave them on this table.
+</sideA>
+<sideB faceimg="gabor" gender="m">15Cool find! These look really old. What are they about?|11About what? I have never heared this term.|13Sounds interesting, may I take a look?|15Thanks!
+</sideB>
+<explaination>A 'used to' szerkezet:
+
+- A szerkezet alap esetben múltbéli szokásaink kifejezésére szolgál. Különbözõ igeidõk alkalmazásával azt is körülírhatjuk vele, hogy valamit megszoktunk, éppen megszokunk vagy pedig meg fogunk szokni. Jelen szokásainkra az elsõ leckékbõl már ismert sima jelen idõt használjuk. 
+
+- A szerkezet egy kivétellel mindig 'used to' alakban marad, csak akkor változik meg, ha 'did' segédigével szerepel együtt - ekkor ledobja az '-ed' végzõdést, mintha rendesen múlt idõbe tennénk.
+I didn't use to smoke. - Régen nem dohányoztam. (nem volt a szokásom)  
+I did use to love my wife. - Régen igenis szerettem a feleségemet. (de manapság már nem szeretem)
+
+Mondatok képzése a 'used to'-val nem nehéz, a fordításban a 'régen' szócskát használhatjuk. A 'used to' után a mondat fõigéje jelen idõben marad! 
+I used to read a lot of books. - Régen rengeteg könyvet olvastam.
+I used to swim in the lake. - Régen a tóban úsztam.
+I was used to the smog. - Régen hozzá voltam szokva a szmoghoz.
+
+- Ha a 'used to' elõtt létige van, lehetõségünk nyílik '-ás, -és' képzõket is használni a mondatban.
+I was used to travelling alone. - Régen egyedül utaztam. (szokásom volt az egyedül utazás)
+
+- A szerkezet további jelentéseit a 'get' segédigével képezhetjük és tulajdonképpen ez is kapja meg a megfelelõ igeidõk jeleit.
+
+Éppen megszokunk valamit - folyamatos jelen idõvel képezve:
+I am getting used to school. - Éppen megszokom az iskolát.
+
+Már megszoktunk valamit - múlt idõvel
+I got used to school. - Megszoktam az iskolát.
+
+Hozzá fogunk szokni valamihez - jövõ idõvel.
+I will get used to school. - Hozzá fogok szokni az iskolához.
+
+- Természetesen különbözõ szándékokat kifejezhetünk más igeidõkkel is, de ezek ritkán fordulnak elõ az elõ beszédben és mesterkéltnek hatnak.
+</explaination>
+</conversation>
+
+
+<conversation id="17" topicid="10">
+<title bgimg="class.gif" bgsnd="x.mp3">Passing a test</title>
+<sideA faceimg="andras" gender="m">15Great! I have passed the test! It doesn't matter if only by a narrow margin.|7Don't worry, you'll have another chance next week. I will even help you with the questions.|7Sure, let's meet two days from now. By that time run through your notes once again!|8Yes, we can arrange it tomorrow.
+</sideA>
+<sideB faceimg="gabor" gender="m">14I envy you. I can't say the same. I only needed one more point.|11Would you really help me out?|15Can I call you tomorrow to fix the time and place?|15Wow! You can't imagine how happy I am! Thank you! 
+</sideB>
+<explaination>Present Perfect (befejezett jelen):
+
+- A befejezett jelen idõ fordítása a magyarban a múlt idõvel történik. Különbözõ szándékokat és múlt béli cselekvések körülményeit fejezhetjük ki vele, azonban fordításban nem érzékelhetõek ezek jól a magyarok számára.
+- Képzése a 'have' segédigével és a fõige harmadik alakjával történik. 
+Fontos, hogy összetett igealakoknál, például: 'have lunch' - ebédelni, a mondatban megkettõzõdik a 'have', hiszen az elsõ csak az igeidõ kifejezésére van jelen, a másodiknak pedig a harmadik alakját kell használni, ami 'had'. - I have had lunch.
+
+Legalapvetõbb alkalmazási területei:
+- Egy cselekvés történt a múltban és eredménye a jelenre is kihat:
+I have cooked the lunch. - Megfõztem az ebédet (ott gõzölög az asztalon és nem létezett addig ameddig meg nem fõztem).
+- Olyan cselekvés esetében is használjuk, amelyek nem nagyon régen történtek.
+I haven't seen Kate this morning. - Nem láttam ma reggel Katit.
+- Sikerek és kudarcok esetén:
+I have failed the exam. - Megbuktam a vizssgán.
+- Ha a múltban megismétlõdött egy pár alkalommal egy cselekvés, de nem fontos, hogy mikor.
+I have seen this movie 10 times. - Ezt a mozit 10-szer láttam (életemben összesen).
+
+A mondatokból nem hiányozhat vizsgán a 'for' és 'since' szócska sem! Ezek sorrendben idõtartam, illetve pontos idõpont megjelölésére szolgálnak. 
+- I haven't seen him for years. - Évek óta nem láttam.
+- I have studied English for 8 years. - Nyolc éven át tanultam angolul.
+- I haven't smoked a cigarette since yesterday. - Tegnap óta nem gyújtottam rá.
+- I haven't seen him since 2009. - 2009 óta nem láttam.
+</explaination>
+</conversation>
+<conversation id="18" topicid="11">
+<title bgimg="room2.gif" bgsnd="x.mp3">The missing wallet</title>
+<sideA faceimg="andras" gender="m">5I can't find my wallet! Have you seen it?|8I can clearly remember I had put it on the drawer before I went out to water the plants in the garden.|6About half an hour ago.|11My God! Where was it?|7How did it get there?</sideA>
+
+
+<sideB faceimg="saci" gender="f">2Well not yet, but let me help you find it. Don't you remember where you put it?|10How long ago was it?|15Wait, it is here!|1Under this newspaper on the table.|7Search me, but the main thing is we found it.</sideB>
+<explaination>Past Perfect (befejezett múlt):
+
+- Annak ellenére, hogy kissé túlmisztifikált a használata, a kérdéses igeidõ csak arra használatos, hogy két múltbéli cselekvés közül eldöntsük és kihangsúlyozzuk, hogy melyik történt elõbb. Akkor igazán fontos az alkalmazása, ha olyan cselekvésre utalunk, amely nem egy pontosan meghatározott idõponthoz köthetõ a múltban, vagy tapasztalatot fejez ki.
+I had never seen snow before I moved to Hungary. - Mielõtt Magyarországra költöztem nem láttam havat.
+- Képzése nem nehéz, a 'had' segédigére és az ige harmadik alakjára van szükség.
+- Fontos itt is, hogy összetett igealakoknál, például: 'have lunch' - ebédelni, a mondatban megkettõzõdik a 'have', hiszen az elsõ csak az igeidõ kifejezésére van jelen, a másodiknak pedig a harmadik alakját kell használni, ami 'had'. - I had had lunch, before I came here.
+- Mivel elõidejûséget jelent a mondat, így nem fordul elõ önmagában! Nyelvvizsgán az árulja el, hogy az összetett mondat bal oldalán az ige harmadik alakja, jobb oldalon pedig sima múlt idõ szerepel.
+I had washed my teeth, before I went to bed. - Fogat mostam mielõtt lefeküdtem.
+
+</explaination>
+</conversation>
+
+<conversation id="19" topicid="12">
+<title bgimg="engine.gif" bgsnd="x.mp3">Something with the car</title>
+<sideA faceimg="edina" gender="f">5Can you do something with the car?|2I am freezing to death.|13Do you know the number of the towing company?|8I can't seem to locate it. Finding anything here also seems like a challenge. Ok I got it! Can you help me with the dialing?</sideA>
+
+<sideB faceimg="gabor" gender="m">10The whole engine is ice cold. Starting a car in winter with this much snow is not easy.|11Honestly I think calling some service would be much easier than tweaking endlessly.|13Yes, I have a notebook in the glove compartment.|4Alright!
+</sideB>
+
+<explaination>Az '-ing' végzõdések alkalmazása - Gerund:
+
+- A legegyszerûbben megfogalmazva az -ás, -és képzõrõl van szó. Képzése tehát akkor a legszembetûnõbb, ha egy igébõl szeretnénk fõnevet képezni.
+
+Swimming is fun. - Az úszás jó dolog.
+I like swimming. - Szeretem az úszást.
+
+Láthatjuk, hogy mivel fõnevet képeztünk, a 'gerund' állhat a mondat alanyaként és tárgyaként is! 
+Ez magyarban sem lehetetlen:
+Please start restarting the computer. - Kérlek, kezd el a számítógép újraindítását.
+
+Alkalmazása még a következõ kontextusokban ajánlott:
+
+Egyidejûség kifejezése:
+I enjoy speaking English. - Élvezem az angol tanítását. (tehát boldog vagyok amikor angolul beszélek)
+
+Elõidejûség kifejezésére:
+He admitted having eaten the pie. - Bevallotta a pite megevését. (tehát bevallotta, hogy felfalta)
+
+Néhány elöljárószó után:
+- by, by stealing the car - az autót ellopva (az autó ellopása által)
+- instead of, instead of calling the cops - a rendõrök hívása helyett
+- besides, besides lieing - hazugság mellett
+- on, on entering the room - a szobába belépve
+- before, before eating - evés elõtt
+- after, after having dinner - vacsora után
+- since, since finishing university - az egyetem elvégzése óta
+
+Számos ige után (legfontosabbak egy nyelvtanuló számára):
+- love, love skiing - imádni a síelést
+- like, like skiing - szeretni a síelést 
+- hate, hate smoking - gyûlölni a dohányzást
+- don't mind, don't mind smoking - nem törõdni a dohányzással
+- look forward to, look forward to seeing - várni a legközelebbi viszontlátásig 
+- enjoy, enjoy speaking English - élvezni az angolul való társalgást
+- couldn't help, couldn't help eating cookies - nem tudni ellenállni a sütievésnek
+- can't stand, can't stand smoking - ki nem állni a dohányzást
+- stop, stop smoking - abbahagyni a dohányzást
+- remember, don't remember calling - nem emlékezni a hívásra
+- forget, forget turning off the stove - elfelejteni a gáztûzhely kikapcsolását
+
+</explaination>
+</conversation>
+
+
+
+<conversation id="20" topicid="13">
+<title bgimg="icecream.gif" bgsnd="x.mp3">Ice-cream</title>
+<sideA faceimg="andras" gender="m">7Let's get some ice-cream! I know a parlor that has such good flavours, that everybody licks their ten fingers when they taste them.|8Indeed, the thermometer shows 30 degrees Celsius, I can't believe that the weather is so hot.</sideA>
+
+<sideB faceimg="gabor" gender="m">15Sounds awesome! In this hot weather a little coolness will do us good.|14And it is going to be worse and worse every year. we are experiencing extremely cold winters and unbearable summers.</sideB>
+
+
+<explaination>A 'so' és a 'such' szerkezetek:
+
+A 'so' és a 'such' jelentése az angolban a magyar 'olyan' szócskának felel meg. Azt, hogy melyiket használjuk az angol mondatban az dönti el, hogy a kérdéses mondatrészen belül hány fõnév helyezkedik el. Ha egy, akkor a 'so'-t kell alkalmaznunk, ha kettõ, akkor a 'such'-ot.
+
+Elsõ példaként írjuk le, hogy:
+Kati olyan szép.
+
+Láthatjuk, hogy itt csak Kati, mint alany szerepel a mondatban egyetlen fõnévként.
+A mondat fordítása tehát a következõ:
+Kate is so beautiful.
+
+Nem jelent problémát a cselekvõk száma és az igeidõk sem:
+A feladat olyan nehéz volt.
+The task was so hard.
+
+A különféle fogások olyan finomak voltak.
+The different kinds of dishes were so delicious.
+
+Második esetben nézzük meg, hogy a 'such' hogyan viselkedik:
+- Ha a mondatban szereplõ mondatrész, amelynek tulajdonságáról beszélünk, egyesszámban van, akkor a 'such'-ot egy 'a' határozatlan névelõ is követi, ha többesszámban van, akkor nem. A 'such' kifejezés általában összetett mondatokban szerepel. Az összekötõ 'that' szócskát érdemes kezdõ nyelvtanulóknak mindig a mondatba emelni.
+
+Egyszerûen megfogalmazva második fõnévnek az számít, amikor meghatározzuk, hogy a tulajdonsággal bíró alany vagy alanyok micsoda vagy micsodák.
+
+Péter olyan jó tanuló, hogy mindent megért.
+Peter is such a good student (that) he understands everything.
+
+Az almák olyan egészséges gyümölcsök, hogy minden nap érdemes enni belõlük.
+Apples are such healthy fruits (that) it is worth to eat them every day.
+
+Természetesen, ahogyan a 'so' esetében is, az igeidõk nem számítanak. 
+
+Simpsonék olyan rendes szomszédok voltak, hogy mindig lehetett rájuk számítani.
+The Simpsons were such nice neighbours (that) everybody could count on them.
+
+</explaination>
+</conversation>
+
+
+
+<conversation id="21" topicid="13">
+<title bgimg="radio2.gif" bgsnd="x.mp3">Tune in the radio</title>
+<sideA faceimg="andras" gender="m">2I can't get the new tune I heard yesterday out of my head!|15It is the most simplistic melody I have ever heard and yet it can express such deep emotions.|8Man, I tell you I have to get it on CD soon.</sideA>
+
+<sideB faceimg="gabor" gender="m">11Is it that so good?|15Wow, I never saw you so enthusiastic about a song played on the radio.|15Want to go together and buy it?</sideB>
+
+
+<explaination>A 'so' és a 'such' szerkezetek:
+
+A 'so' és a 'such' jelentése az angolban a magyar 'olyan' szócskának felel meg. Azt, hogy melyiket használjuk az angol mondatban az dönti el, hogy a kérdéses mondatrészen belül hány fõnév helyezkedik el. Ha egy, akkor a 'so'-t kell alkalmaznunk, ha kettõ, akkor a 'such'-ot.
+
+Elsõ példaként írjuk le, hogy:
+Kati olyan szép.
+
+Láthatjuk, hogy itt csak Kati, mint alany szerepel a mondatban egyetlen fõnévként.
+A mondat fordítása tehát a következõ:
+Kate is so beautiful.
+
+Nem jelent problémát a cselekvõk száma és az igeidõk sem:
+A feladat olyan nehéz volt.
+The task was so hard.
+
+A különféle fogások olyan finomak voltak.
+The different kinds of dishes were so delicious.
+
+Második esetben nézzük meg, hogy a 'such' hogyan viselkedik:
+- Ha a mondatban szereplõ mondatrész, amelynek tulajdonságáról beszélünk, egyesszámban van, akkor a 'such'-ot egy 'a' határozatlan névelõ is követi, ha többesszámban van, akkor nem. A 'such' kifejezés általában összetett mondatokban szerepel. Az összekötõ 'that' szócskát érdemes kezdõ nyelvtanulóknak mindig a mondatba emelni.
+
+Egyszerûen megfogalmazva második fõnévnek az számít, amikor meghatározzuk, hogy a tulajdonsággal bíró alany vagy alanyok micsoda vagy micsodák.
+
+Péter olyan jó tanuló, hogy mindent megért.
+Peter is such a good student (that) he understands everything.
+
+Az almák olyan egészséges gyümölcsök, hogy minden nap érdemes enni belõlük.
+Apples are such healthy fruits (that) it is worth to eat them every day.
+
+Természetesen, ahogyan a 'so' esetében is, az igeidõk nem számítanak. 
+
+Simpsonék olyan rendes szomszédok voltak, hogy mindig lehetett rájuk számítani.
+The Simpsons were such nice neighbours (that) everybody could count on them.
+
+</explaination>
+</conversation>
+
+<conversation id="22" topicid="14">
+<title bgimg="doctor.gif" bgsnd="x.mp3">At the doctor</title>
+<sideA faceimg="edina" gender="f">Doctor, I am so happy I could find you here this afternoon.|Someting is wrong with my eye. I was sitting all day in the office with my back to an air conditioner and now my eyes are burning.|Is there anything to treat them with as soon as possible? I really can't go on sick-leave now.|Well that can be hardly arranged, but I will keep your advice in mind.|Is my condition that serious?</sideA>
+<sideB faceimg="gabor" gender="m">Good afternoon! How may I help you? What is the problem?|Come in and take a seat! Let me see them. Yes they look red and irritated.|Well I can prescribe some eye drops that might help and you can go to work tomorrow, but you should avoid using computers all day and stay out of drafts.|It is more than an advice. You should never work around that same air conditioner again.|Not yet, but it will be if you don't take care of yourself.</sideB>
+<explaination>A 'should' - kéne, kellene:
+
+Nincs igazán sok minden amit hozzá lehetne fûzni, az angolok tanácsadáskor használják. Jelentése: kéne, kellene.
+
+</explaination>
+</conversation>
+
+
+
+
+
+
+
+
+<conversation id="22" topicid="15">
+<title bgimg="office4.gif" bgsnd="x.mp3">The interview</title>
+<sideA faceimg="andras" gender="m">13Good Morning!|7Thank you. I am happy to be back for a second time.|1I see.|8Yes we have discussed everything with the other person I met at the first time.|13Naturally.|1I always take care of tasks assigned to me as precise as possible. Also, during my years of study at the university, I tried to widen my horizon in different fields of science that may provide useful after I joined your firm. |8I think the gross sum that the other fellow mentioned is good enough for me for a start.|8Sounds terrific! Will I have any benefits, I mean lunch tickets or something for public transport?|7Sounds good.|6Well I can't say that. I only want to know precisely how much time do I have to finish a task.|1I think I know everything now.|7Thank you! See you later then.
+</sideA>
+
+<sideB faceimg="saci" gender="f">2Good Morning and welcome!|2Indeed, this indicates that you have passed the first round of our selections, this conversation is the second one. After this we will call you back once again to sign all the papers and perhaps a contract.|7So you are now aware of what we are doing here.|9I see. I am glad that he has already told you about the position. The only thing we want from our employees is punctuality. If our clients are not satisfied then that may harm us financially.|2How would you describe your core values?|2What are your expectations regarding salary?|7I think so too, but we will even raise that sum right after your work shadowing is completed.|15Yes our company provides the regular cafeteria ticket system.|10Have you ever been overwhelmed by the scope of a job?|7Alright! I think we are done for today. Thank you. Do you have any further questions?|2Then you will hear from our decision soon.|7Yes, goodbye! My colleague will help you find your way out.
+
+</sideB>
+
+
+<explaination>A fenti dialógus az eddig leírt nyelvtani fogalmak összegzéseként szoglál.
+
+
+</explaination>
+</conversation>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</conversations>

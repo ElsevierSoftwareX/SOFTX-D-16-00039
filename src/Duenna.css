@@ -1,0 +1,45 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+global
+{
+	content-background-alpha: 0.99;
+	content-background-color: #FFFFFF;
+	vertical-align: top;
+	text-align: left;
+	font-size: 12;
+	font-family: Verdana;
+	text-decoration: none;
+
+
+}
+
+@font-face
+{
+	src: url("src\images\Suplexmentary Comic NC.ttf");
+	fontFamily: Suplexmentary;
+	embedAsCFF: true;
+
+}
+s|RichText:comiclabel443
+{
+	fontFamily: Suplexmentary;
+	fontSize: 15;
+}
+s|Label.comiclabel3
+{
+	fontFamily: Suplexmentary;
+	fontSize: 15;
+}
+
+s|Label.comiclabel2
+{
+	fontFamily: Suplexmentary;
+	fontSize: 15;
+}
+s|Label.comiclabelsm
+{
+	fontFamily: Suplexmentary;
+	fontSize: 9;
+}
