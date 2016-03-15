@@ -1,0 +1,77 @@
+<items>
+	<item id="1" type="0">
+		<subject>Playing a conversation</subject>
+		<explaination><![CDATA[		<font size='20'>Overview</font><br><br>
+You can easily start the playback of a conversation if you select first a <b>Topic</b> then a <b>Conversation</b> from the dropdown lists on the right hand side. <br><br>
+After you have made your choice, you have to push the <b>Play</b> button under the dropdown lists.<br>
+          <br>
+<font size='20'>Playing and stopping a conversation</font><br>
+<br> <img src='images/buttons/1300911538_player_play.png' > <img src='images/buttons/1300911592_player_pause.png' ><br> You can <b>Pause</b> a conversation any time during playback. If you then click the <b>Play</b> button again after a Pause, the conversation will continue from where you left off. <br>
+
+<img src='images/buttons/1300911576_player_stop.png' > <br>
+<b>Stopping</b> a conversation will reset the conversation to the starting point.
+           
+          
+              ]]></explaination>
+	</item>
+	
+	<item id="2" type="0">
+		<subject>Configuring TTS settings</subject>
+		<explaination><![CDATA[
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+			Quisque tincidunt pulvinar augue at tempus. 
+			Vivamus sagittis elit volutpat arcu rutrum commodo. 
+			Donec est enim, porttitor at posuere nec, ultrices vitae tortor. 
+			In facilisis fringilla viverra. 
+			In volutpat, tellus eget auctor tincidunt, velit est iaculis nibh, vitae fringilla enim eros ac sapien.
+			 Praesent risus diam, iaculis a tempor et, tempus in neque. Nunc a est sed risus elementum interdum et et metus. 
+			 Integer non orci neque, vitae blandit ipsum. Phasellus in diam nibh, quis gravida ipsum. 
+			 Sed et metus quis libero accumsan accumsan id eget odio. 
+          
+              ]]></explaination>
+	</item>
+	
+	<item id="3" type="0">
+		<subject>Displaying grammatical explaination</subject>
+		<explaination><![CDATA[
+
+			In facilisis fringilla viverra. 
+			In volutpat, tellus eget auctor tincidunt, velit est iaculis nibh, vitae fringilla enim eros ac sapien.
+			 Praesent risus diam, iaculis a tempor et, tempus in neque. Nunc a est sed risus elementum interdum et et metus. 
+			 Integer non orci neque, vitae blandit ipsum. Phasellus in diam nibh, quis gravida ipsum. 
+			 Sed et metus quis libero accumsan accumsan id eget odio. 
+                  			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+			Quisque tincidunt pulvinar augue at tempus. 
+			Vivamus sagittis elit volutpat arcu rutrum commodo. 
+			Donec est enim, porttitor at posuere nec, ultrices vitae tortor.   
+              ]]></explaination>
+	</item>
+	
+	<item id="3" type="0">
+		<subject>Using the dictionary</subject>
+		<explaination><![CDATA[
+          			Quisque tincidunt pulvinar augue at tempus. 
+			Vivamus sagittis elit volutpat arcu rutrum commodo. 
+			Donec est enim, porttitor at posuere nec, ultrices vitae tortor. 
+          			 Praesent risus diam, iaculis a tempor et, tempus in neque. Nunc a est sed risus elementum interdum et et metus. 
+			 Integer non orci neque, vitae blandit ipsum. Phasellus in diam nibh, quis gravida ipsum. 
+			 Sed et metus quis libero accumsan accumsan id eget odio. 
+                  			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+			Quisque tincidunt pulvinar augue at tempus. 
+              ]]></explaination>
+	</item>
+		<item id="4" type="0">
+		<subject>Displaying the dialogue transcript</subject>
+		<explaination><![CDATA[
+          			Quisque tincidunt pulvinar augue at tempus. 
+			Vivamus sagittis elit volutpat arcu rutrum commodo. 
+			Donec est enim, porttitor at posuere nec, ultrices vitae tortor. 
+          			 Praesent risus diam, iaculis a tempor et, tempus in neque. Nunc a est sed risus elementum interdum et et metus. 
+			 Integer non orci neque, vitae blandit ipsum. Phasellus in diam nibh, quis gravida ipsum. 
+			 Sed et metus quis libero accumsan accumsan id eget odio. 
+                  			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+			Quisque tincidunt pulvinar augue at tempus. 
+              ]]></explaination>
+	</item>
+	
+</items>
